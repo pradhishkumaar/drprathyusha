@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Prathyusha's Homoeo Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #1a3c5a;
+            --healing-seafoam: #8dbfb3;
+            --soft-slate: #f4f6f7;
+            --white: #ffffff;
+            --text-main: #34495e;
+            --accent-gold: #c5a059;
+            --wa-green: #25D366;
+            /* muthudigital.com inspired vibrant brand blue */
+            --muthu-blue: #0066cc;
+            --muthu-blue-hover: #0052a3;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding-bottom: 70px; background-color: var(--soft-slate); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* --- STICKY CALL ACTION BAR --- */
+        .action-bar-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 4000;
+            display: flex;
+            padding: 10px 15px;
+            box-sizing: border-box;
+        }
+
+        .action-btn.call-bar-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--white);
+            background-color: var(--muthu-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+        }
+
+        .action-btn.call-bar-btn:hover {
+            background-color: var(--muthu-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        /* --- LOGO --- */
+        .css-logo {
+            width: 42px;
+            height: 42px;
+            background-color: var(--brand-navy); 
+            border: 2.5px solid var(--white);       
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .css-logo::before {
+            content: '+';
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 0;
+            margin-top: -2px;
+        }
+
+        header { 
+            background: var(--brand-navy); 
+            padding: 0 5%; 
+            height: 75px;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin-right: 20px;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .logo-wrap { display: flex; align-items: center; text-decoration: none; color: white; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 0.5px; }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            height: 100%; width: 0; position: fixed; z-index: 3000; top: 0; left: 0;
+            background-color: #f0f7f7; overflow-x: hidden; transition: 0.4s;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar-content { flex-grow: 1; padding-top: 20px; }
+        .sidebar a { padding: 15px 35px; text-decoration: none; font-size: 1.1rem; color: var(--brand-navy); display: block; font-weight: 600; }
+        .sidebar .close-btn { display: block; padding: 10px 35px; font-size: 2.2rem; cursor: pointer; color: var(--brand-navy); text-align: left; }
+        
+        /* Sidebar Logo Header (Moved to Top) */
+        .sidebar-header-branding { 
+            padding: 10px 35px 20px 35px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            border-bottom: 1px solid rgba(26, 60, 90, 0.1);
+            margin-bottom: 15px;
+        }
+        .sidebar-header-branding .css-logo { background-color: var(--brand-navy); border: 2.5px solid var(--brand-navy); }
+        .sidebar-header-text { font-size: 0.95rem; font-weight: bold; color: var(--brand-navy); font-family: 'Playfair Display', serif; line-height: 1.3; }
+
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2500; }
+
+        section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; color: var(--brand-navy); margin-bottom: 30px; font-size: 2.2rem; font-family: 'Playfair Display', serif; }
+
+        .hero { padding: 80px 20px; text-align: center; background: var(--white); border-bottom: 1px solid #eee; }
+        .hero h2 { font-size: 2.8rem; color: var(--brand-navy); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        
+        /* --- BOOK APPOINTMENT CTA --- */
+        .cta-btn { 
+            background: var(--wa-green); 
+            color: var(--white); 
+            padding: 18px 45px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            display: inline-block; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            transition: all 0.4s ease;
+        }
+        .cta-btn:hover {
+            background: var(--brand-navy); 
+            color: white;
+            box-shadow: 0 10px 20px rgba(26, 60, 90, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .about-card { background: white; padding: 45px; border-radius: 8px; border-top: 6px solid var(--healing-seafoam); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .exp-tag { color: var(--accent-gold); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; letter-spacing: 1px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 35px 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: center; border: 1px solid #eee; }
+        .card h4 { color: var(--brand-navy); font-size: 1.3rem; margin-top: 0; font-family: 'Playfair Display', serif; }
+
+        .carousel-container { max-width: 750px; margin: 0 auto; }
+        .t-card-wrap { background: white; padding: 50px 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-left: 6px solid var(--healing-seafoam); min-height: 180px; display: flex; flex-direction: column; justify-content: center; }
+        .testimonial-item { display: none; animation: fadeIn 0.8s ease-in-out; }
+        .testimonial-item.active { display: block; }
+        .t-text { font-style: italic; font-size: 1.15rem; color: var(--text-main); margin-bottom: 20px; }
+        .t-name { font-weight: bold; color: var(--brand-navy); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .faq-item { background: white; margin-bottom: 12px; border-radius: 8px; border: 1px solid #eee; }
+        .faq-question { padding: 22px; font-weight: 600; color: var(--brand-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 22px 22px; display: none; color: #555; border-top: 1px solid #f9f9f9; padding-top: 15px; }
+
+        .address-section { background: #f8f9fa; padding: 60px 20px; text-align: center; border-top: 1px solid #ddd; }
+        .map-btn { background: var(--brand-navy); color: white; padding: 14px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin: 20px 0; }
+        .phone-link { color: inherit; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body onclick="closeNavOutside(event)">
+
+<div class="action-bar-container">
+    <a href="tel:+919790911627" class="action-btn call-bar-btn">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M3.654 1.328a.678.678 0 0 0-.58-.196L1.545 1.365A.68.68 0 0 0 1 2.039c0 5.613 4.594 10.207 10.207 10.207a.68.68 0 0 0 .674-.545l.233-1.53a.68.68 0 0 0-.417-.717l-2.454-1.022a.68.68 0 0 0-.756.245L7.472 11.16a7.9a7.9 0 0 1-4.764-4.764L4.017 5.04a.68.68 0 0 0 .245-.756L3.24 1.83a.68.68 0 0 0-.586-.502z"/>
+        </svg>
+        Let us talk / Call Now
+    </a>
+</div>
+
+<div id="overlay" class="overlay"></div>
+<nav id="mySidebar" class="sidebar">
+    <div class="sidebar-content">
+        <span class="close-btn" onclick="closeNav()">×</span>
+        
+        <div class="sidebar-header-branding">
+            <div class="css-logo"></div>
+            <div class="sidebar-header-text">Dr. Prathyusha's<br>Homoeo Clinic</div>
+        </div>
+
+        <a href="homeopathy-info.html">About Homeopathy</a>
+        <a href="#home" onclick="closeNav()">Home</a>
+        <a href="#about" onclick="closeNav()">About Us</a>
+        <a href="#services" onclick="closeNav()">Treatments</a>
+        <a href="#testimonials" onclick="closeNav()">Success Stories</a>
+        <a href="#faq" onclick="closeNav()">FAQs</a>
+        <a href="#contact" onclick="closeNav()">Clinic Location</a>
+    </div>
+</nav>
+
+<header>
+    <button class="menu-btn" onclick="openNav(event)">☰</button>
+    <a href="#" class="logo-wrap">
+        <div class="css-logo"></div>
+        <span class="logo-text">Dr. Prathyusha's Homoeo Clinic</span>
+    </a>
+</header>
+
+<section id="home" class="hero">
+    <h2>Homeopathic treatement for patients <br> No side effects</h2>
+    <p>Clinical excellence with 12 years of successful practice in <b>Chennai, Kilpauk</b>.</p>
+    <a href="https://wa.me/919790911627?text=Hi%20Dr.%20Prathyusha,%20I'd%20like%20to%20consult%20regarding%20a%20health%20issue." target="_blank" class="cta-btn">Book Appointment</a>
+</section>
+
+<section id="about">
+    <div class="about-card">
+        <span class="exp-tag">12+ YEARS OF CLINICAL EXCELLENCE</span>
+        <h3>Meet Dr. Prathyusha, B.H.MS</h3>
+        <p>I have helped thousands of patients find gentle, effective, and lasting relief from chronic ailments. My approach combines deep clinical expertise with constitutional homeopathy, focusing on treating the root cause of illness rather than just the symptoms.</p>
+        <p>Our clinic takes pride in highly successful treatment results, particularly in complex cases of skin disorders, hormonal imbalances, and hair health.</p>
+    </div>
+</section>
+
+<section id="services">
+    <h3 class="section-title">Specialized Treatments</h3>
+    <div class="services-grid">
+        <div class="card"><h4>Skin Care</h4><p>Deep healing for acne, allergies, eczema, and psoriasis from within.</p></div>
+        <div class="card"><h4>PCOD / PCOS</h4><p>Natural hormonal balancing and specialized care for women's reproductive health.</p></div>
+        <div class="card"><h4>Hair Health</h4><p>Addressing hair fall, thinning, and scalp vitality at the root cause level.</p></div>
+        <div class="card"><h4>Chronic Illness</h4><p>Effective management for long-standing health conditions with holistic therapy.</p></div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h3 class="section-title">Patient Success Stories</h3>
+    <div class="carousel-container">
+        <div class="t-card-wrap" id="carousel">
+            <div class="testimonial-item active"><p class="t-text">"I had severe skin allergies for 5 years. Within 3 months of treatment, my skin is completely clear."</p><span class="t-name">- Anitha R.</span></div>
+            <div class="testimonial-item"><p class="t-text">"Finally found relief for my PCOD. The constitutional medicine worked wonders for my hormonal balance."</p><span class="t-name">- Priya S.</span></div>
+            <div class="testimonial-item"><p class="t-text">"Excellent care for chronic sinus issues. I haven't needed an antibiotic in over a year."</p><span class="t-name">- Rajesh Kumar</span></div>
+            <div class="testimonial-item"><p class="t-text">"My daughter's recurring cough and cold are gone. Homeopathy is so gentle and effective for kids."</p><span class="t-name">- Meera V.</span></div>
+            <div class="testimonial-item"><p class="t-text">"The most patient doctor I've met. She explains everything so clearly. Highly recommended for hair fall issues."</p><span class="t-name">- Kavitha M.</span></div>
+            <div class="testimonial-item"><p class="t-text">"After trying many treatments for my migraine, only Dr. Prathyusha's medicines gave me permanent relief."</p><span class="t-name">- Suresh B.</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <h3 class="section-title">Common Questions</h3>
+    <div class="faq-container">
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is Homeopathy safe for everyone? <span>+</span></div><div class="faq-answer">Yes, homeopathic medicines are prepared from natural substances, making them safe for infants, children, and elderly patients.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I take it with other medicines? <span>+</span></div><div class="faq-answer">Yes, it can be taken alongside most conventional medications safely.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How long does treatment take? <span>+</span></div><div class="faq-answer">Acute cases show quick results, while chronic conditions typically show improvement within 2-4 months.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are there any dietary restrictions? <span>+</span></div><div class="faq-answer">Generally, avoid strong smells 30 minutes before and after taking the medicine for better absorption.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is it effective for children? <span>+</span></div><div class="faq-answer">Yes, it is highly effective for children's immunity and respiratory issues as the pills are easy to take.</div></div>
+    </div>
+</section>
+
+<section id="contact" class="address-section">
+    <h2>Visit the Clinic</h2>
+    <p>Shop No. 8, Ground Floor, Uma Complex, Balfour Road, Kellys, Chennai - 600010</p>
+    <a href="https://maps.google.com" target="_blank" class="map-btn">Get Directions</a>
+    <div class="hours">MON-FRI: 10:30 AM TO 1:30 PM</div>
+    <p><strong>Contact:</strong> <a href="tel:+919790911627" class="phone-link">+91 97909 11627</a></p>
+    <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 30px;">© 2026 Dr. Prathyusha's Homoeo Clinic.</p>
+</section>
+
+<script>
+    function openNav(event) { event.stopPropagation(); document.getElementById("mySidebar").style.width = "280px"; document.getElementById("overlay").style.display = "block"; }
+    function closeNav() { document.getElementById("mySidebar").style.width = "0"; document.getElementById("overlay").style.display = "none"; }
+    function closeNavOutside(event) { const sidebar = document.getElementById("mySidebar"); if (sidebar.style.width === "280px" && !sidebar.contains(event.target)) { closeNav(); } }
+    
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-item');
+    setInterval(() => {
+        if (slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    }, 5000);
+
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('span');
+        const isOpen = (answer.style.display === "block");
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        document.querySelectorAll('.faq-question span').forEach(s => s.innerText = '+');
+        if(!isOpen) { answer.style.display = "block"; icon.innerText = "−"; }
+    }
+</script>
+
+<script>
+    window.addEventListener('load', function() {
+        const target = localStorage.getItem('scrollTarget');
+        if (target) {
+            const element = document.getElementById(target);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    localStorage.removeItem('scrollTarget');
+                }, 300);
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
