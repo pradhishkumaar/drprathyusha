@@ -30,7 +30,7 @@
             width: 100%;
             background-color: var(--white);
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-            z-index: 4000;
+            z-Index: 4000;
             display: flex;
             padding: 10px 15px;
             box-sizing: border-box;
@@ -73,7 +73,7 @@
             text-align: center;
             font-size: 30px;
             box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
-            z-index: 5000;
+            z-Index: 5000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -124,7 +124,7 @@
             height: 75px;
             position: sticky; 
             top: 0; 
-            z-index: 1000; 
+            z-Index: 1000; 
             display: flex;
             align-items: center;
         }
@@ -137,7 +137,7 @@
             cursor: pointer;
             margin-right: 20px;
             padding: 5px;
-            z-index: 1001;
+            z-Index: 1001;
         }
         
         .logo-wrap { display: flex; align-items: center; text-decoration: none; color: white; }
@@ -150,7 +150,7 @@
             border-bottom: 1px solid #e2e8f0;
             position: sticky;
             top: 75px;
-            z-index: 999;
+            z-Index: 999;
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
         .desktop-nav-container {
@@ -174,7 +174,7 @@
 
         /* --- SIDEBAR Drawer Layout --- */
         .sidebar {
-            height: 100%; width: 0; position: fixed; z-index: 3000; top: 0; left: 0;
+            height: 100%; width: 0; position: fixed; z-Index: 3000; top: 0; left: 0;
             background-color: #f0f7f7; overflow-x: hidden; transition: 0.4s;
             box-shadow: 5px 0 15px rgba(0,0,0,0.1);
             display: flex;
@@ -195,7 +195,7 @@
         .sidebar-header-branding .css-logo { background-color: var(--brand-navy); border: 2.5px solid var(--brand-navy); }
         .sidebar-header-text { font-size: 0.95rem; font-weight: bold; color: var(--brand-navy); font-family: 'Playfair Display', serif; line-height: 1.3; }
 
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2500; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-Index: 2500; }
 
         section { padding: 50px 20px; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
         .section-title { text-align: center; color: var(--brand-navy); margin-bottom: 35px; font-size: 2.2rem; font-family: 'Playfair Display', serif; }
@@ -233,7 +233,7 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(26, 60, 90, 0.6);
             backdrop-filter: blur(4px);
-            z-index: 6000;
+            z-Index: 6000;
             justify-content: center;
             align-items: center;
         }
@@ -379,7 +379,7 @@
             <div class="css-logo"></div>
             <div class="sidebar-header-text">Dr. Prathyusha's<br>Homoeo Clinic</div>
         </div>
-        <a href="index10.html">Home</a>
+        <a href="Index10.html">Home</a>
         <a href="javascript:void(0)" onclick="handleRouting('about')">About Us</a>
         <a href="javascript:void(0)" onclick="handleRouting('services')">Treatments</a>
         <a href="#history">System History</a>
@@ -391,7 +391,7 @@
 
 <header>
     <button class="menu-btn" onclick="openNav(event)">☰</button>
-    <a href="index10.html" class="logo-wrap">
+    <a href="Index10.html" class="logo-wrap">
         <div class="css-logo"></div>
         <span class="logo-text">Dr. Prathyusha's Homoeo Clinic</span>
     </a>
@@ -399,7 +399,7 @@
 
 <div class="desktop-nav-bar">
     <div class="desktop-nav-container">
-        <a href="index10.html">Home</a>
+        <a href="Index10.html">Home</a>
         <a href="javascript:void(0)" onclick="handleRouting('about')">About Us</a>
         <a href="javascript:void(0)" onclick="handleRouting('services')">Treatments</a>
         <a href="#history" style="color: var(--muthu-blue);">About Homeopathy</a>
@@ -410,7 +410,7 @@
 </div>
 
 <section class="info-hero">
-     <button class="cta-btn secondary-mobile-btn cta-mobile-only" onclick="openAppointmentModal()">Ask Doctor</button>
+     <button class="cta-btn secondary-mobile-btn cta-mobile-only" onclick="openAppointmentModal()">Ask Doctor Advise</button>
     <h1>Understanding Homeopathy</h1>
     <p>A sophisticated, evidence-based system of holistic medicine that stimulates your body's natural healing mechanisms to treat root causes without side effects.</p>
     
@@ -509,7 +509,7 @@
         <div class="footer-col-nav">
             <h4>Quick Navigation</h4>
             <ul class="footer-nav-links">
-                <li><a href="index10.html">Home</a></li>
+                <li><a href="Index10.html">Home</a></li>
                 <li><a href="javascript:void(0)" onclick="handleRouting('about')">About Us</a></li>
                 <li><a href="javascript:void(0)" onclick="handleRouting('services')">Treatments Overview</a></li>
                 <li><a href="#history">About Homeopathy</a></li>
@@ -552,7 +552,7 @@
     // Cross-Page Route Anchor Smooth Scroll Handler
     function handleRouting(sectionId) {
         localStorage.setItem('scrollTarget', sectionId);
-        window.location.href = 'index10.html';
+        window.location.href = 'Index10.html';
     }
 
     // Interaction Modal Controls
