@@ -61,12 +61,15 @@
         .visual-symptom-grid { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
         
         .symptom-visual-card { 
-            background: var(--white); 
-            border: 1px solid #e2e8f0; 
-            border-radius: 12px; 
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            border-left: 5px solid var(--brand-navy);
+             background-color: rgba(255,255,255,0.82);
+                padding: 35px 25px;
+                border-radius: 22px;
+                border: 1px solid rgba(226,232,240,0.65);
+                border-top: 6px solid var(--healing-seafoam);
+                box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
+                text-align: center;
+               
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .symptom-info-pane { padding: 25px; }
         .symptom-info-pane h4 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.3rem; margin: 0 0 10px 0; }
