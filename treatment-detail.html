@@ -15,99 +15,207 @@
             --accent-gold: #c5a059;
             --wa-green: #25D366;
             --muthu-blue: #2563eb;
+            --muthu-blue-hover: #0052a3;
         }
 
         html { overflow-x: hidden; scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding-bottom: 85px; background-color: var(--soft-slate); color: var(--text-main); line-height: 1.6; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            padding-bottom: 85px; 
+            background-color: var(--soft-slate); 
+            color: var(--text-main); 
+            line-height: 1.75; 
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* --- FLOATING ACTIONS --- */
+        /* --- STICKY FOOTER ACTIONS (MOBILE) --- */
         .action-bar-container { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--white); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08); z-index: 4000; display: flex; padding: 10px 15px; box-sizing: border-box; }
         .action-btn.call-bar-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; height: 50px; text-decoration: none; font-weight: 600; color: var(--white); background-color: var(--muthu-blue); border-radius: 8px; }
-        .wa-float { position: fixed; width: 55px; height: 55px; bottom: 85px; right: 20px; background-color: var(--wa-green); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 30px; box-shadow: 2px 4px 12px rgba(0,0,0,0.15); z-index: 5000; }
+
+        /* --- FLOATING UTILITIES (TOP ARROW + WHATSAPP) --- */
+        .floating-utility-group {
+            position: fixed;
+            bottom: 85px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 5000;
+        }
+        .scroll-top-btn {
+            width: 45px;
+            height: 45px;
+            background-color: var(--brand-navy);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .scroll-top-btn:hover { transform: translateY(-3px); background-color: var(--muthu-blue); }
+        
+        .wa-float { 
+            width: 55px; 
+            height: 55px; 
+            background-color: var(--wa-green); 
+            color: var(--white); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-decoration: none; 
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.15); 
+            transition: all 0.3s ease;
+        }
+        .wa-float:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+        .wa-float svg { width: 28px; height: 28px; fill: currentColor; display: block; }
 
         /* --- CLINIC HEADER --- */
-        header { background: var(--brand-navy); padding: 0 5%; height: 75px; position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; }
+        header { background: var(--brand-navy); padding: 0 5%; height: 75px; position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; box-sizing: border-box; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
         .logo-wrap { display: flex; align-items: center; text-decoration: none; color: white; }
-        .css-logo { width: 42px; height: 42px; border: 2.5px solid var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; }
+        .css-logo { width: 42px; height: 42px; border: 2.5px solid var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; }
         .css-logo::before { content: '+'; color: var(--white); font-weight: 600; font-size: 38px; margin-top: -2px; }
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 0.5px; }
 
-        .desktop-nav-bar { background-color: var(--white); border-bottom: 1px solid #e2e8f0; position: sticky; top: 75px; z-index: 999; }
+        /* --- SIDEBAR MENU ARCHITECTURE --- */
+        .menu-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu-toggle-btn span { display: block; width: 26px; height: 3px; background-color: var(--white); border-radius: 2px; }
+
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--brand-navy);
+            z-index: 9999;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 30px 25px;
+            box-sizing: border-box;
+        }
+        .sidebar-menu.active { right: 0; }
+        .sidebar-close-btn { background: none; border: none; color: var(--white); font-size: 32px; cursor: pointer; float: right; margin-bottom: 30px; line-height: 1; }
+        .sidebar-links { list-style: none; padding: 0; margin: 60px 0 0 0; display: flex; flex-direction: column; gap: 20px; }
+        .sidebar-links a { text-decoration: none; color: var(--white); font-size: 1.1rem; font-weight: 500; opacity: 0.9; transition: all 0.3s ease; display: block; }
+        .sidebar-links a:hover { color: var(--healing-seafoam); padding-left: 5px; }
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(2px); z-index: 9998; display: none; }
+        .sidebar-overlay.active { display: block; }
+
+        /* --- TOP NAV BAR ROW --- */
+        .desktop-nav-bar { background-color: var(--white); border-bottom: 1px solid #e2e8f0; position: sticky; top: 75px; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .desktop-nav-container { max-width: 1100px; margin: 0 auto; display: flex; padding: 12px 20px; }
-        .desktop-nav-container a { text-decoration: none; color: var(--brand-navy); font-weight: 600; }
+        .desktop-nav-container a { text-decoration: none; color: var(--brand-navy); font-weight: 600; font-size: 0.95rem; }
 
-        /* --- DETAIL PAGE GRID ARCHITECTURE --- */
+        /* --- CONTENT MAIN GRID --- */
         .detail-container { max-width: 900px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
-        .back-link { display: inline-block; margin-bottom: 25px; color: var(--muthu-blue); text-decoration: none; font-weight: 600; }
         
         .treatment-main-card {
             background: rgba(255, 255, 255, 0.82);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
-            border: 1px solid rgba(226, 232, 240, 0.65);
-            border-top: 6px solid var(--healing-seafoam);
+            padding: 45px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: none;
         }
         
-        .treatment-main-card h1 { font-family: 'Playfair Display', serif; color: var(--brand-navy); margin-top: 0; font-size: 2.6rem; margin-bottom: 15px; }
+        .treatment-main-card h1 { font-family: 'Playfair Display', serif; color: var(--brand-navy); margin-top: 0; font-size: 2.4rem; margin-bottom: 15px; }
         .clinical-meta-strip { display: flex; gap: 20px; margin-bottom: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 15px; }
         .meta-tag-blue { color: var(--muthu-blue); }
         .meta-tag-gold { color: var(--accent-gold); }
 
-        .treatment-description { font-size: 1.15rem; color: #334155; margin-bottom: 40px; line-height: 1.8; text-align: justify; }
+        .treatment-description { font-size: 1rem; color: var(--text-main); margin-bottom: 40px; text-align: justify; }
         
-        /* --- VISUAL SYMPTOM DEEP DIVE CARDS --- */
-        .symptom-section h2 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.7rem; margin-bottom: 25px; }
-        .visual-symptom-grid { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
+        /* --- SYMPTOM MAP CARDS --- */
+        .symptom-section h2 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.8rem; margin-bottom: 25px; text-align: center; }
+        .visual-symptom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        
         .symptom-visual-card { 
-             background-color: rgba(255,255,255,0.82);
-                padding: 35px 25px;
-                border-radius: 22px;
-                border: 1px solid rgba(226,232,240,0.65);
-                border-top: 6px solid var(--healing-seafoam);
-                box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
-                text-align: center;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.82); 
+            padding: 35px 25px; 
+            border-radius: 22px; 
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04); 
+            text-align: center; 
+            border: 1px solid rgba(226, 232, 240, 0.65); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
         }
-        .symptom-info-pane { padding: 25px; }
-        .symptom-info-pane h4 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.3rem; margin: 0 0 10px 0; }
-        .symptom-info-pane p { margin: 0; font-size: 0.95rem; color: #475569; line-height: 1.6; }
+        .symptom-visual-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06); }
+
+        .symptom-info-pane h4 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.3rem; margin: 0 0 12px 0; }
+        .symptom-info-pane p { margin: 0; font-size: 0.9rem; color: #555; line-height: 1.6; }
         
-        /* DIAGRAM COMPONENT FOR MEDICAL ILLUSTRATION 
-        .medical-diagram-container {
-            background: --white;
-            padding: 30px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--brand-navy);
-            border-bottom: 20px solid #e2e8f0;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-*/
-        /* --- EXHAUSTIVE BACKGROUND EDUCATION PANELS --- */
-        .educational-block { background: #f8fafc; border-radius: 12px; padding: 35px; margin-bottom: 40px; border: 1px solid #e2e8f0; }
-        .educational-block h3 { font-family: 'Playfair Display', serif; color: var(--brand-navy); margin-top: 0; font-size: 1.4rem; }
-        .educational-block p { font-size: 0.95rem; color: #475569; line-height: 1.7; margin-bottom: 0; }
+        /* --- BACKGROUND EDUCATION INFO --- */
+        .educational-block { background: var(--white); border-radius: 8px; padding: 45px; margin-bottom: 40px; border-top: 6px solid var(--healing-seafoam); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .educational-block h3 { font-family: 'Playfair Display', serif; color: var(--brand-navy); margin-top: 0; font-size: 1.4rem; margin-bottom: 12px; }
+        .educational-block p { font-size: 0.95rem; color: #555; line-height: 1.75; margin-bottom: 0; }
 
         .cta-box { text-align: center; padding: 40px; background: #f0f7f7; border-radius: 12px; border: 1px solid rgba(26, 60, 90, 0.05); }
         .cta-box h4 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.4rem; margin: 0 0 10px 0; }
-        .cta-btn { background: var(--wa-green); color: var(--white); padding: 16px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 15px rgba(37,211,102,0.3); margin-top: 15px; }
+        
+        .cta-btn { 
+            background: var(--wa-green); 
+            color: var(--white); 
+            padding: 18px 35px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            display: inline-block; 
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            transition: all 0.4s ease;
+        }
+        .cta-btn:hover { background: var(--brand-navy); transform: translateY(-2px); }
 
-        @media (min-width: 768px) { body { padding-bottom: 0; } .action-bar-container { display: none !important; } .wa-float { bottom: 30px; right: 30px; } }
+        @media (min-width: 768px) { body { padding-bottom: 0; } .action-bar-container { display: none !important; } .floating-utility-group { bottom: 30px; right: 30px; } }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/919790911627" class="wa-float" target="_blank">✕</a>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebarMenu()"></div>
+<nav class="sidebar-menu" id="sidebarMenu">
+    <button class="sidebar-close-btn" onclick="toggleSidebarMenu()">×</button>
+    <ul class="sidebar-links">
+        <li><a href="Index12.html#home" onclick="toggleSidebarMenu()">Home</a></li>
+        <li><a href="Index12.html#about" onclick="toggleSidebarMenu()">About Dr. Prathyusha</a></li>
+        <li><a href="Index12.html#scope" onclick="toggleSidebarMenu()">Treatments Scope</a></li>
+        <li><a href="Index12.html#testimonials" onclick="toggleSidebarMenu()">Patient Reviews</a></li>
+        <li><a href="Index12.html#faq" onclick="toggleSidebarMenu()">FAQs</a></li>
+        <li><a href="Index12.html#contact" onclick="toggleSidebarMenu()">Contact Clinic</a></li>
+    </ul>
+</nav>
+
+<div class="floating-utility-group">
+    <button class="scroll-top-btn" onclick="scrollToTopOfThePage()" title="Move to top">↑</button>
+    <a href="https://wa.me/919790911627" class="wa-float" target="_blank" title="Chat on WhatsApp">
+        <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </a>
+</div>
 
 <header>
     <a href="Index12.html" class="logo-wrap">
         <div class="css-logo"></div>
         <span class="logo-text">Dr. Prathyusha's Homoeo Clinic</span>
     </a>
+    <button class="menu-toggle-btn" onclick="toggleSidebarMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </header>
 
 <div class="desktop-nav-bar">
@@ -117,16 +225,14 @@
 </div>
 
 <main class="detail-container">
-    <a href="Index12.html" class="back-link">← Return to Case Departments</a>
-    
     <div class="treatment-main-card">
-        <h1 id="treatmentTitle">Loading Case File...</h1>
+        <h1 id="treatmentTitle">Loading Medical Specifications...</h1>
         <div class="clinical-meta-strip">
             <span class="meta-tag-blue">Therapy: Constitutional Homeopathy</span>
             <span class="meta-tag-gold" id="clinicalFocus">Focus: Systemic Core Balancing</span>
         </div>
         
-        <p class="treatment-description" id="treatmentDesc">Reading systemic case metrics...</p>
+        <p class="treatment-description" id="treatmentDesc">Accessing dynamic clinical logs...</p>
         
         <div class="symptom-section">
             <h2>Detailed Symptom Mapping & Indicators</h2>
@@ -148,11 +254,11 @@
 </main>
 
 <div class="action-bar-container">
-    <a href="tel:+919790911627" class="action-btn call-bar-btn">Call Clinic Now</a>
+    <a href="tel:+919790911627" class="action-btn call-bar-btn">Free Consultation First / Call Now</a>
 </div>
 
 <script>
-    // MASSIVE MEDICAL REPOSITORY - 1 PACKED PAGE FOR EACH OF THE 21 DEPARTMENTS
+    // FULL REPOSITORY FOR THE 21 TREATMENT DEPARTMENTS
     const treatmentRepository = {
         "skin-care": {
             title: "Skin & Dermal Matrix Recovery",
@@ -160,9 +266,9 @@
             desc: "Dermatological recovery in constitutional homeopathy treats skin eruptions not as separate local problems, but as direct expressions of internal systemic imbalances, sluggish filtering organs, or toxic stresses. Instead of applying suppressive topical ointments that push ailments deeper into your system, our care focuses on supporting inner metabolic pathways to clear conditions safely from within.",
             advantage: "By optimizing cellular filtering speed and rebalancing immune triggers, our therapies help prevent chronic skin outbreaks, restore normal epidermal textures, and gradually smooth away residual scarring.",
             symptoms: [
-                { title: "Severe Acne Vulgaris & Cystic Nodules", desc: "Deep, painful, inflammatory breakouts rooted in hyperactive sebaceous glands and hormonal metabolic shifts.", design: "" },
-                { title: "Chronic Eczema & Atopic Flare-ups", desc: "Intense itching, dry patches, and vesicular skin breakdowns linked to hypersensitive immune parameters.", design: "" },
-                { title: "Psoriasis Plaque Formations", desc: "Accelerated cellular scaling caused by autoimmune triggers, creating dry, silvery plaque layers.", design: "" }
+                { title: "Severe Acne Vulgaris & Cystic Nodules", desc: "Deep, painful, inflammatory breakouts rooted in hyperactive sebaceous glands and hormonal metabolic shifts." },
+                { title: "Chronic Eczema & Atopic Flare-ups", desc: "Intense itching, dry patches, and vesicular skin breakdowns linked to hypersensitive immune parameters." },
+                { title: "Psoriasis Plaque Formations", desc: "Accelerated cellular scaling caused by autoimmune triggers, creating dry, silvery plaque layers." }
             ]
         },
         "pcod-pcos": {
@@ -171,9 +277,9 @@
             desc: "Polycystic Ovarian Syndrome is a complex neuroendocrine feedback imbalance rather than just a localized ovarian concern. Constitutional treatment works closely with the hypothalamic-pituitary-ovarian axis to restore natural regulatory rhythms, encourage proper follicle development, and systematically reduce insulin resistance indicators.",
             advantage: "Our approach focuses on restoring normal menstrual regularity, clearing metabolic resistance, and supporting overall reproductive vitality completely naturally.",
             symptoms: [
-                { title: "Multiple Ovarian Micro-Cysts", desc: "Improperly matured follicles forming chain-like cyst patterns visible on pelvic ultrasound profiles.", design: "" },
-                { title: "Hormonal Hirsutism & Acne", desc: "Unwanted hair growth on the face or chin and persistent jawline acne driven by elevated androgen parameters.", design: "" },
-                { title: "Sluggish Metabolic Weight Blocks", desc: "Stubborn weight accumulation around the midsection caused by core insulin resistance changes.", design: "" }
+                { title: "Multiple Ovarian Micro-Cysts", desc: "Improperly matured follicles forming chain-like cyst patterns visible on pelvic ultrasound profiles." },
+                { title: "Hormonal Hirsutism & Acne", desc: "Unwanted hair growth on the face or chin and persistent jawline acne driven by elevated androgen parameters." },
+                { title: "Sluggish Metabolic Weight Blocks", desc: "Stubborn weight accumulation around the midsection caused by core insulin resistance changes." }
             ]
         },
         "hair-health": {
@@ -182,9 +288,9 @@
             desc: "Thinning hair and shedding are typically driven by micro-circulation bottlenecks, localized auto-immune responses, or underlying hormonal sensitivities. Homeopathic remedies focus directly on improving follicular matrix blood flow, soothing overactive local immunity, and helping to naturally extend the healthy growth phase of your hair cycles.",
             advantage: "This comprehensive method calms chronic scalp inflammation, strengthens hair roots, and encourages thicker, healthier growth over time.",
             symptoms: [
-                { title: "Chronic Diffuse Hair Shedding", desc: "Widespread, rapid hair loss often triggered by high physical stress, illness recovery, or metabolic changes.", design: "" },
-                { title: "Alopecia Areata Patches", desc: "Smooth, circular hair loss patches caused by localized autoimmune cells mistakingly targeting the follicles.", design: "" },
-                { title: "Severe Seborrheic Dermatitis", desc: "Thick, oily, irritating scale buildup across the scalp that blocks healthy root performance.", design: "" }
+                { title: "Chronic Diffuse Hair Shedding", desc: "Widespread, rapid hair loss often triggered by high physical stress, illness recovery, or metabolic changes." },
+                { title: "Alopecia Areata Patches", desc: "Smooth, circular hair loss patches caused by localized autoimmune cells mistakingly targeting the follicles." },
+                { title: "Severe Seborrheic Dermatitis", desc: "Thick, oily, irritating scale buildup across the scalp that blocks healthy root performance." }
             ]
         },
         "respiratory-care": {
@@ -193,20 +299,20 @@
             desc: "Chronic respiratory conditions generally highlight a hyper-reactive immune configuration paired with weak mucosal linings. Rather than temporarily drying out your airways with antihistamines, our therapy modulates hypersensitivity metrics, builds natural defensive resilience, and clears lingering deep-seated congestion.",
             advantage: "Our care helps reduce frequent allergic reactions, clears chronic airway inflammation, and supports comfortable, easy breathing through seasonal changes.",
             symptoms: [
-                { title: "Chronic Sinus Congestion", desc: "Painful, swollen sinus cavities accompanied by post-nasal drip, facial pressure, and headaches.", design: "" },
-                { title: "Allergic Asthma & Wheezing", desc: "Hyperactive bronchial spasms triggered by environmental elements, making breathing difficult.", design: "" },
-                { title: "Recurrent Bronchitis Cycles", desc: "Lingering deep-chested coughs and irritated bronchial tubes that flare up with minor weather changes.", design: "" }
+                { title: "Chronic Sinus Congestion", desc: "Painful, swollen sinus cavities accompanied by post-nasal drip, facial pressure, and headaches." },
+                { title: "Allergic Asthma & Wheezing", desc: "Hyperactive bronchial spasms triggered by environmental elements, making breathing difficult." },
+                { title: "Recurrent Bronchitis Cycles", desc: "Lingering deep-chested coughs and irritated bronchial tubes that flare up with minor weather changes." }
             ]
         },
         "digestive-disorders": {
-            title: "Gastrointestinal Motility Management",
+            title: "Digestive & Gastrointestinal Management",
             focus: "Gut Mucosal Ecosystem Balance",
             desc: "Healthy digestion relies on smooth muscular contractions, balanced gastric juices, and a calm gut-brain axis. Homeopathic constitutional protocols target hypersensitive digestive nerves, repair delicate mucosal linings, and soothe stress-induced stomach spasms without creating antacid dependencies.",
             advantage: "This helps balance everyday nutrient assimilation rhythms, normalizes regular transit cycles, and clears chronic bloating problems.",
             symptoms: [
-                { title: "Irritable Bowel Syndrome (IBS)", desc: "Alternating cycles of constipation and loose stools paired with painful, stress-triggered intestinal spasms.", design: "" },
-                { title: "Chronic Hyperacidity & GERD", desc: "Weak lower esophageal sphincters allowing stomach acid to rise, causing burning chest discomfort.", design: "" },
-                { title: "Persistent Gastritis Flares", desc: "Inflamed stomach mucosal walls leading to sharp pains, nausea, and poor nutrient digestion.", design: "" }
+                { title: "Irritable Bowel Syndrome (IBS)", desc: "Alternating cycles of constipation and loose stools paired with painful, stress-triggered intestinal spasms." },
+                { title: "Chronic Hyperacidity & GERD", desc: "Weak lower esophageal sphincters allowing stomach acid to rise, causing burning chest discomfort." },
+                { title: "Persistent Gastritis Flares", desc: "Inflamed stomach mucosal walls leading to sharp pains, nausea, and poor nutrient digestion." }
             ]
         },
         "joint-bone-care": {
@@ -215,9 +321,9 @@
             desc: "Chronic musculoskeletal concerns require deep, structural support. Our clinical approach focuses directly on controlling synovial membrane inflammation, easing periarticular stiffness, and retarding progressive osteophyte or cartilage degradation trends to preserve mobility and naturally reduce pain patterns.",
             advantage: "This approach naturally manages discomfort, reduces dependence on heavy painkillers, and supports long-term flexibility.",
             symptoms: [
-                { title: "Osteoarthritis Joint Wear", desc: "Degraded protective cartilage linings inside weight-bearing joints, leading to bone friction.", design: "" },
-                { title: "Rheumatoid Inflammatory Pain", desc: "Chronic autoimmune swelling inside the delicate synovial linings, causing morning hand stiffness.", design: "" },
-                { title: "Sciatica Nerve Radiation", desc: "Sharp, shooting discomfort traveling down the sciatic nerve paths due to lumbar disc pressures.", design: "" }
+                { title: "Osteoarthritis Joint Wear", desc: "Degraded protective cartilage linings inside weight-bearing joints, leading to bone friction." },
+                { title: "Rheumatoid Inflammatory Pain", desc: "Chronic autoimmune swelling inside the delicate synovial linings, causing morning hand stiffness." },
+                { title: "Sciatica Nerve Radiation", desc: "Sharp, shooting discomfort traveling down the sciatic nerve paths due to lumbar disc pressures." }
             ]
         },
         "thyroid-balance": {
@@ -226,9 +332,9 @@
             desc: "Thyroid performance changes often point to deeper autoimmune patterns or long-standing metabolic exhaustion loops. Homeopathy doesn't use artificial replacement hormones; instead, it gently prompts your body's endocrine network to optimize its own production and metabolic distribution balances.",
             advantage: "This helps re-align vital energy distribution, matches baseline metabolic speeds, and clears chronic lethargy.",
             symptoms: [
-                { title: "Hypothyroidism Fatigue", desc: "A slow metabolic state that triggers unexplained weight gain, constant chills, and low energy.", design: "" },
-                { title: "Hyperthyroidism Palpitations", desc: "An overactive metabolic state causing sudden weight loss, hand tremors, and racing pulse markers.", design: "" },
-                { title: "Glandular Swelling Tendencies", desc: "Mild thyroid tissue changes or nodular developments caused by underlying endocrine stress loops.", design: "" }
+                { title: "Hypothyroidism Fatigue", desc: "A slow metabolic state that triggers unexplained weight gain, constant chills, and low energy." },
+                { title: "Hyperthyroidism Palpitations", desc: "An overactive metabolic state causing sudden weight loss, hand tremors, and racing pulse markers." },
+                { title: "Glandular Swelling Tendencies", desc: "Mild thyroid tissue changes or nodular developments caused by underlying endocrine stress loops." }
             ]
         },
         "pediatric-care": {
@@ -237,9 +343,9 @@
             desc: "A child's growing immune network responds beautifully to gentle, customized homeopathic treatment. Our sweet, non-toxic preparations avoid harsh chemical ingredients entirely. They work with the child's natural defenses to resolve childhood issues, minimize recurring antibiotic dependencies, and build deep cellular resilience.",
             advantage: "This safely supports expanding development, treats frequent infections gently, and balances childhood allergies.",
             symptoms: [
-                { title: "Recurrent Tonsillitis Cycles", desc: "Swollen, painful throat glands that cause swallowing difficulties and frequent fever spikes.", design: "" },
-                { title: "Childhood Allergic Coughs", desc: "Sensitive, hyper-reactive bronchial airways that act up at night or during cold weather changes.", design: "" },
-                { title: "Sluggish Juvenile Digestion", desc: "Frequent stomach aches, painful gas buildup, and irregular bowel patterns in growing children.", design: "" }
+                { title: "Recurrent Tonsillitis Cycles", desc: "Swollen, painful throat glands that cause swallowing difficulties and frequent fever spikes." },
+                { title: "Childhood Allergic Coughs", desc: "Sensitive, hyper-reactive bronchial airways that act up at night or during cold weather changes." },
+                { title: "Sluggish Juvenile Digestion", desc: "Frequent stomach aches, painful gas buildup, and irregular bowel patterns in growing children." }
             ]
         },
         "stress-anxiety": {
@@ -248,9 +354,9 @@
             desc: "Mental and emotional exhaustion directly drive localized physical disease. Our unique mind-body constitutional remedies calm hyperactive sympathetic nervous system triggers, lower elevated cortisol responses, and stabilize natural sleep patterns without causing any chemical sedation or addictive dependencies.",
             advantage: "Our care helps lower persistent physical tension, clears mental fog, and supports refreshing sleep.",
             symptoms: [
-                { title: "Chronic Insomnia Patterns", desc: "An overactive mind making it difficult to fall asleep, leading to fragmented, shallow rest.", design: "" },
-                { title: "Generalized Panic Tendencies", desc: "Sudden waves of physical anxiety accompanied by tight chest feelings and racing pulse rates.", design: "" },
-                { title: "Nervous Burnout & Fog", desc: "Deep mental exhaustion, low mental clarity, and persistent daily fatigue from long-term stress.", design: "" }
+                { title: "Chronic Insomnia Patterns", desc: "An overactive mind making it difficult to fall asleep, leading to fragmented, shallow rest." },
+                { title: "Generalized Panic Tendencies", desc: "Sudden waves of physical anxiety accompanied by tight chest feelings and racing pulse rates." },
+                { title: "Nervous Burnout & Fog", desc: "Deep mental exhaustion, low mental clarity, and persistent daily fatigue from long-term stress." }
             ]
         },
         "weight-regulation": {
@@ -259,9 +365,9 @@
             desc: "Stubborn weight retention is rarely solved by simple calorie counting; it is often locked in place by slow resting metabolisms, high stress markers, or underlying hormonal shifts. We identify and clear those deeper metabolic blocks, helping your body process energy cleanly and maintain a balanced composition.",
             advantage: "This targets internal fluid retentions, improves metabolic fat conversion, and increases active stamina.",
             symptoms: [
-                { title: "Hormonal Metabolic Slowdown", desc: "A slow basic metabolism that holds onto fat layers even with a balanced nutritional intake.", design: "" },
-                { title: "Fluid Retention & Puffy Edema", desc: "Subtle fluid retention across tissues, causing swollen ankles and an uncomfortable heavy feeling.", design: "" },
-                { title: "Stress-Driven Adipose Storage", desc: "Elevated cortisol patterns signaling your body to store protective fat layers around central organs.", design: "" }
+                { title: "Hormonal Metabolic Slowdown", desc: "A slow basic metabolism that holds onto fat layers even with a balanced nutritional intake." },
+                { title: "Fluid Retention & Puffy Edema", desc: "Subtle fluid retention across tissues, causing swollen ankles and an uncomfortable heavy feeling." },
+                { title: "Stress-Driven Adipose Storage", desc: "Elevated cortisol patterns signaling your body to store protective fat layers around central organs." }
             ]
         },
         "allergic-rhinitis": {
@@ -270,9 +376,9 @@
             desc: "Allergic rhinitis stems from an overactive immune response to everyday environmental elements. Our step-by-step immune modulation strategy calms this hyper-reactivity, clears chronic sinus congestion, and helps your system peacefully tolerate dust, pollen, and weather shifts.",
             advantage: "This stops sudden morning sneezing fits, reduces eye irritation, and limits seasonal allergy dependencies.",
             symptoms: [
-                { title: "Paroxysmal Morning Sneezing", desc: "Uncontrollable sneezing fits immediately upon waking, triggered by temperature shifts or dust.", design: "" },
-                { title: "Profuse Watery Nasal Flows", desc: "Continuous, clear nasal discharge alongside irritated, red, and itchy eye membranes.", design: "" },
-                { title: "Weather Transition Irritations", desc: "Severe nasal congestion and tickling throat passages that flare up when moving from heat to cold.", design: "" }
+                { title: "Paroxysmal Morning Sneezing", desc: "Uncontrollable sneezing fits immediately upon waking, triggered by temperature shifts or dust." },
+                { title: "Profuse Watery Nasal Flows", desc: "Continuous, clear nasal discharge alongside irritated, red, and itchy eye membranes." },
+                { title: "Weather Transition Irritations", desc: "Severe nasal congestion and tickling throat passages that flare up when moving from heat to cold." }
             ]
         },
         "migraine-management": {
@@ -281,9 +387,9 @@
             desc: "Migraines involve complex neurological sensitivity and vascular dilation loops. Constitutional care helps stabilize these blood vessel triggers, calms neuro-inflammatory pathways, and addresses the common digestive, hormonal, or stress factors that set off severe headache attacks.",
             advantage: "This reduces the frequency of painful episodes, cuts down attack durations, and settles related sensory issues.",
             symptoms: [
-                { title: "Unilateral Throbbing Pain", desc: "Intense, pulsing headache concentrated on one side of the head that worsens with movement.", design: "" },
-                { title: "Sensory Overload & Nausea", desc: "Extreme sensitivity to lights, sounds, and smells during an attack, often accompanied by vomiting.", design: "" },
-                { title: "Visual Aura Precursors", desc: "Seeing zig-zag lines, temporary flashing lights, or blind spots before the main headache hits.", design: "" }
+                { title: "Unilateral Throbbing Pain", desc: "Intense, pulsing headache concentrated on one side of the head that worsens with movement." },
+                { title: "Sensory Overload & Nausea", desc: "Extreme sensitivity to lights, sounds, and smells during an attack, often accompanied by vomiting." },
+                { title: "Visual Aura Precursors", desc: "Seeing zig-zag lines, temporary flashing lights, or blind spots before the main headache hits." }
             ]
         },
         "chronic-fatigue": {
@@ -292,9 +398,9 @@
             desc: "Lingering fatigue and low energy often point to deep cellular exhaustion, post-viral depletion, or systemic immune stress. Our refreshing constitutional approach restores core vitality, improves cellular oxygenation patterns, and helps rebuild your body's everyday stamina.",
             advantage: "This helps lift heavy morning exhaustion, improves physical endurance, and supports clear mental focus.",
             symptoms: [
-                { title: "Persistent Exhaustion State", desc: "Deep, ongoing tiredness that isn't relieved by long sleep or extended periods of rest.", design: "" },
-                { title: "Post-Viral Depletion Core", desc: "Lingering physical weakness, muscle aches, and low stamina following viral infections.", design: "" },
-                { title: "Unrefreshing Sleep Realities", desc: "Waking up feeling tired and achy, indicating a lack of deep, restorative stage-4 sleep.", design: "" }
+                { title: "Persistent Exhaustion State", desc: "Deep, ongoing tiredness that isn't relieved by long sleep or extended periods of rest." },
+                { title: "Post-Viral Depletion Core", desc: "Lingering physical weakness, muscle aches, and low stamina following viral infections." },
+                { title: "Unrefreshing Sleep Realities", desc: "Waking up feeling tired and achy, indicating a lack of deep, restorative stage-4 sleep." }
             ]
         },
         "urinary-complaints": {
@@ -303,9 +409,9 @@
             desc: "Recurrent bladder issues or small kidney crystals point to altered fluid filtration balances and local pH shifts. Homeopathy helps soothe inflamed urinary linings, updates systemic elimination profiles, and safely helps clear minor crystalline blockages without invasive procedures.",
             advantage: "This calms painful burning sensations, limits frequent bladder infections, and supports natural kidney filtration.",
             symptoms: [
-                { title: "Recurrent Urinary UTIs", desc: "Frequent bacterial irritations causing painful spasms and constant urgency feelings.", design: "" },
-                { title: "Painful Burning Urination", desc: "Sharp, stinging discomfort along the urinary tract during elimination due to local inflammation.", design: "" },
-                { title: "Minor Kidney Crystal Passages", desc: "Small crystalline mineral structures causing intense, radiating lower back and flank discomfort.", design: "" }
+                { title: "Recurrent Urinary UTIs", desc: "Frequent bacterial irritations causing painful spasms and constant urgency feelings." },
+                { title: "Painful Burning Urination", desc: "Sharp, stinging discomfort along the urinary tract during elimination due to local inflammation." },
+                { title: "Minor Kidney Crystal Passages", desc: "Small crystalline mineral structures causing intense, radiating lower back and flank discomfort." }
             ]
         },
         "female-wellness": {
@@ -314,9 +420,9 @@
             desc: "From menarche to menopause, a woman's health depends on smooth hormonal transitions. Our specialized therapies provide gentle support for difficult cycles and life adjustments, helping to regulate smooth muscle tone, ease cramping, and stabilize emotional shifts naturally.",
             advantage: "This helps relieve severe monthly pain, addresses pre-cycle mood shifts, and handles menopausal heat spikes.",
             symptoms: [
-                { title: "Dysmenorrhea Severe Cramps", desc: "Intense, radiating uterine muscle spasms before and during cycles, causing pelvic pain.", design: "" },
-                { title: "Premenstrual Mood Overloads", desc: "Severe emotional shifts, bloating, and breast tenderness during the late luteal cycle phase.", design: "" },
-                { title: "Perimenopausal Hot Flashes", desc: "Sudden, intense heat waves and night sweats caused by changing estrogen signals in the brain.", design: "" }
+                { title: "Dysmenorrhea Severe Cramps", desc: "Intense, radiating uterine muscle spasms before and during cycles, causing pelvic pain." },
+                { title: "Premenstrual Mood Overloads", desc: "Severe emotional shifts, bloating, and breast tenderness during the late luteal cycle phase." },
+                { title: "Perimenopausal Hot Flashes", desc: "Sudden, intense heat waves and night sweats caused by changing estrogen signals in the brain." }
             ]
         },
         "liver-gallbladder": {
@@ -325,9 +431,9 @@
             desc: "The liver serves as your body's main detox hub. Homeopathic remedies help clear fatty accumulation trends, improve everyday bile synthesis, protect liver cells from oxidative stress, and smooth out your overall digestive metabolism.",
             advantage: "This optimizes toxic filtration pathways, clears chronic nausea feelings, and supports normal fat processing.",
             symptoms: [
-                { title: "Fatty Liver Changes (Grades 1 & 2)", desc: "Accumulated lipid deposits inside liver tissue, slowing down daily filtering performance.", design: "" },
-                { title: "Sluggish Bilious Digestion", desc: "Poor fat digestion accompanied by a bitter taste in the mouth and mild right-sided fullness.", design: "" },
-                { title: "Hepatic Toxic Congestion", desc: "Slow toxin clearing that leads to skin dullness, regular fatigue, and frequent food issues.", design: "" }
+                { title: "Fatty Liver Changes (Grades 1 & 2)", desc: "Accumulated lipid deposits inside liver tissue, slowing down daily filtering performance." },
+                { title: "Sluggish Bilious Digestion", desc: "Poor fat digestion accompanied by a bitter taste in the mouth and mild right-sided fullness." },
+                { title: "Hepatic Toxic Congestion", desc: "Slow toxin clearing that leads to skin dullness, regular fatigue, and frequent food issues." }
             ]
         },
         "lifestyle-disorders": {
@@ -336,9 +442,9 @@
             desc: "Chronic lifestyle issues are heavily shaped by continuous modern stress, vascular tension, and metabolic fatigue. Our constitutional care focuses on calming arterial walls, lowering stress-driven heart rates, and helping your body better regulate energy use to counter long-term fatigue.",
             advantage: "This helps smooth out nerve tingling sensations, addresses vascular pressure spikes, and supports stable daily energy.",
             symptoms: [
-                { title: "Vascular Pressure Spikes", desc: "Elevated arterial wall tension driven by everyday stress, sympathetic overload, or vessel stiffness.", design: "" },
-                { title: "Diabetic Nerve Numbness", desc: "Early tingling feelings or burning sensations in the feet due to chronic blood sugar fatigue.", design: "" },
-                { title: "Metabolic Exhaustion Blocks", desc: "A cluster of slow metabolic issues that leave you feeling consistently tired and low on energy.", design: "" }
+                { title: "Vascular Pressure Spikes", desc: "Elevated arterial wall tension driven by everyday stress, sympathetic overload, or vessel stiffness." },
+                { title: "Diabetic Nerve Numbness", desc: "Early tingling feelings or burning sensations in the feet due to chronic blood sugar fatigue." },
+                { title: "Metabolic Exhaustion Blocks", desc: "A cluster of slow metabolic issues that leave you feeling consistently tired and low on energy." }
             ]
         },
         "immunity-building": {
@@ -347,9 +453,9 @@
             desc: "Frequently falling ill with every weather shift or virus points to an under-resourced immune defense. Our deep-acting constitutional therapy optimizes white blood cell responses, strengthens vital mucosal barriers, and builds long-term defensive resilience from the inside out.",
             advantage: "This helps break frequent antibiotic use cycles, reduces sudden fevers, and builds long-term stamina.",
             symptoms: [
-                { title: "Weather Transition Vulnerability", desc: "Catching severe colds, sore throats, or fevers whenever seasonal temperatures shift.", design: "" },
-                { title: "Frequent Antibiotic Cycles", desc: "A pattern of repeating short-term treatment options due to weak underlying immune defenses.", design: "" },
-                { title: "Slow Convalescence Recoveries", desc: "Taking an unusually long time to regain strength and energy after standard minor infections.", design: "" }
+                { title: "Weather Transition Vulnerability", desc: "Catching severe colds, sore throats, or fevers whenever seasonal temperatures shift." },
+                { title: "Frequent Antibiotic Cycles", desc: "A pattern of repeating short-term treatment options due to weak underlying immune defenses." },
+                { title: "Slow Convalescence Recoveries", desc: "Taking an unusually long time to regain strength and energy after standard minor infections." }
             ]
         },
         "mouth-ulcers": {
@@ -358,9 +464,9 @@
             desc: "Recurrent, painful mouth sores are rarely just a local issue; they are often tied to chronic stomach heat, digestive inflammation, or subtle immune sensitivities. Homeopathy heals the sensitive oral lining, cools down the digestive tract, and targets the root causes behind these painful outbreaks.",
             advantage: "This soothes intense burning pain while eating spices and helps the oral mucosa heal cleanly.",
             symptoms: [
-                { title: "Recurrent Aphthous Ulcers", desc: "Painful, open white sores with red borders forming on the inside of the lips or cheeks.", design: "" },
-                { title: "Spicy Food Burning Sensation", desc: "Intense, raw discomfort across the tongue and gums when eating normal everyday spices.", design: "" },
-                { title: "Digestive Heat Manifestation", desc: "Mouth sores that clear up but recur alongside acid issues, indicating gut layer connections.", design: "" }
+                { title: "Recurrent Aphthous Ulcers", desc: "Painful, open white sores with red borders forming on the inside of the lips or cheeks." },
+                { title: "Spicy Food Burning Sensation", desc: "Intense, raw discomfort across the tongue and gums when eating normal everyday spices." },
+                { title: "Digestive Heat Manifestation", desc: "Mouth sores that clear up but recur alongside acid issues, indicating gut layer connections." }
             ]
         },
         "neuralgia-nerve-pain": {
@@ -369,9 +475,9 @@
             desc: "Nerve pain requires highly precise, soothing care. Homeopathic neural remedies excel at calming hypersensitive, compressed, or inflamed nerve pathways. They help ease shooting pains, reduce tingling sensations, and support natural nerve recovery without causing heavy drowsiness.",
             advantage: "This systematically reduces burning nerve sensations, settles local muscle twitches, and improves resting comfort.",
             symptoms: [
-                { title: "Shooting Neuropathic Pain", desc: "Sharp, electric-like pain flashes traveling along inflamed nerve branches with minimal touch.", design: "" },
-                { title: "Post-Herpetic Neuralgia", desc: "Lingering burning pain and skin sensitivity along nerve paths long after shingles rashes clear up.", design: "" },
-                { title: "Trigeminal Facial Spasms", desc: "Sudden, excruciating flashes of pain radiating across the jaw, cheek, or eye areas.", design: "" }
+                { title: "Shooting Neuropathic Pain", desc: "Sharp, electric-like pain flashes traveling along inflamed nerve branches with minimal touch." },
+                { title: "Post-Herpetic Neuralgia", desc: "Lingering burning pain and skin sensitivity along nerve paths long after shingles rashes clear up." },
+                { title: "Trigeminal Facial Spasms", desc: "Sudden, excruciating flashes of pain radiating across the jaw, cheek, or eye areas." }
             ]
         },
         "geriatric-care": {
@@ -380,37 +486,33 @@
             desc: "Healthy aging centers around comfort, mobility, and clear mental focus. Our gentle senior care protocols provide completely safe support to ease stiff joints, improve natural digestion, protect memory health, and boost baseline energy levels without any risk of drug interactions.",
             advantage: "This supports comfortable independent movement, optimizes daily digestive actions, and helps seniors sleep through the night smoothly.",
             symptoms: [
-                { title: "Multi-Joint Senior Stiffness", desc: "Deep morning stiffness across multiple joints, making early daily movements uncomfortable.", design: "" },
-                { title: "Sluggish Senior Digestion", desc: "Reduced stomach juices and slow intestinal motion leading to poor appetite and bloating.", design: "" },
-                { title: "Fragile Late-Night Sleep Patches", desc: "Waking up frequently during the night, leading to shallow rest and morning tiredness.", design: "" }
+                { title: "Multi-Joint Senior Stiffness", desc: "Deep morning stiffness across multiple joints, making early daily movements uncomfortable." },
+                { title: "Sluggish Senior Digestion", desc: "Reduced stomach juices and slow intestinal motion leading to poor appetite and bloating." },
+                { title: "Fragile Late-Night Sleep Patches", desc: "Waking up frequently during the night, leading to shallow rest and morning tiredness." }
             ]
         }
     };
 
-    // PROCESS THE URL DATA PASSENGERS
+    // SYSTEM URL PARAMETERS PARSER
     const parameters = new URLSearchParams(window.location.search);
     const selectedKey = parameters.get('type');
 
     if (selectedKey && treatmentRepository[selectedKey]) {
         const item = treatmentRepository[selectedKey];
         
-        // Push Text Content to DOM
         document.getElementById('treatmentTitle').innerText = item.title;
         document.getElementById('clinicalFocus').innerText = `Focus: ${item.focus}`;
         document.getElementById('treatmentDesc').innerText = item.desc;
         document.getElementById('treatmentAdvantage').innerText = item.advantage;
         document.title = `${item.title} | Dr. Prathyusha's Homoeo Clinic`;
         
-        // Build the Multi-Page Visual Symptom Experience Cards
         const cardContainer = document.getElementById('visualSymptomContainer');
+        cardContainer.innerHTML = '';
+        
         item.symptoms.forEach(sym => {
             const cardElement = document.createElement('div');
             cardElement.className = 'symptom-visual-card';
-            /*${sym.design}*/
             cardElement.innerHTML = `
-                <div class="medical-diagram-container">
-                    
-                </div>
                 <div class="symptom-info-pane">
                     <h4>${sym.title}</h4>
                     <p>${sym.desc}</p>
@@ -419,15 +521,20 @@
             cardContainer.appendChild(cardElement);
         });
 
-        // Set dynamic personalized messaging parameters for WhatsApp booking action
         const customText = `Hi Dr. Prathyusha, I am reviewing your online specialized care profile and want to schedule a constitutional evaluation for: ${item.title}.`;
         document.getElementById('whatsappCta').href = `https://wa.me/919790911627?text=${encodeURIComponent(customText)}`;
-        
     } else {
-        // Fallback Error Handling
         document.getElementById('treatmentTitle').innerText = "Specialized Profile Missing";
-        document.getElementById('treatmentDesc').innerText = "Please return to the primary portal index page dashboard and select an explicit case department file.";
-        document.getElementById('visualSymptomContainer').innerHTML = "<p>Select a department profile to link case histories accurately.</p>";
+    }
+
+    // INTERFACE CONTROLLER LOGIC
+    function toggleSidebarMenu() {
+        document.getElementById('sidebarMenu').classList.toggle('active');
+        document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+
+    function scrollToTopOfThePage() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
