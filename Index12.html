@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -336,7 +336,18 @@
         .exp-tag { color: var(--accent-gold); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; letter-spacing: 1px; }
 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .card { rgba(255,255,255,0.82); padding: 35px 25px; border-radius: 22px; box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04); text-align: center; border: 1px solid rgba(226,232,240,0.65); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card
+        { 
+                background-color: rgba(255,255,255,0.82);
+                padding: 35px 25px;
+                border-radius: 22px;
+                border: 1px solid rgba(226,232,240,0.65);
+                border-top: 6px solid var(--healing-seafoam);
+                box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
+                text-align: center;
+               
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
         .card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(15,23,42,0.06); }
         .card h4 { color: var(--brand-navy); font-size: 1.3rem; margin-top: 0; font-family: 'Playfair Display', serif; margin-bottom: 12px; }
         .card p { font-size: 0.9rem; color: #555; margin: 0; }
@@ -652,18 +663,27 @@
 <section id="services">
 <h3 class="section-title">Specialized Treatments</h3>
 <div class="services-grid">
-<div class="card"><h4>Skin Care</h4><p>Deep healing for acne, allergies, eczema, warts, and chronic psoriasis from within.</p></div>
-<div class="card"><h4>PCOD / PCOS</h4><p>Natural hormonal balancing, cycle corrections, and constitutional care for long-term health.</p></div>
-<div class="card"><h4>Hair Health</h4><p>Addressing severe hair fall, premature graying, dandruff, and scalp vitality at the root.</p></div>
-<div class="card"><h4>Respiratory Care</h4><p>Effective relief from sinus issues, chronic asthma, bronchitis, and recurrent cold or allergies.</p></div>
-<div class="card"><h4>Digestive Disorders</h4><p>Holistic therapeutic management for IBS, hyperacidity, chronic gastritis, and constipation.</p></div>
-<div class="card"><h4>Joint &amp; Bone Care</h4><p>Gentle management for arthritis, rheumatoid pains, cervical spondylosis, and sciatica.</p></div>
-<div class="card"><h4>Thyroid Balance</h4><p>Constitutional remedies to normalize underactive or overactive thyroid functions naturally.</p></div>
-<div class="card"><h4>Pediatric Care</h4><p>Gentle safely-administered support for children's immunity, recurring fevers, and tonsillitis.</p></div>
-<div class="card"><h4>Stress &amp; Anxiety</h4><p>Mind-body wellness solutions designed to treat chronic sleeplessness, mood shifts, and exhaustion.</p></div>
-<div class="card"><h4>Weight Management</h4><p>Correcting fundamental slower metabolisms and underlying hormonal blocks to aid weight balance.</p></div>
-<div class="card"><h4>Allergy Relief</h4><p>Gradual desensitization of systemic overreactions to dust, pollen, and specific food groups.</p></div>
-<div class="card"><h4>Chronic Illness</h4><p>Long-term comprehensive supportive treatment plans for complicated or non-responsive health conditions.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=skin-care" style="text-decoration:none; color:inherit;">Skin Care</a></h4><p>Constitutional root healing for acne, severe contact allergies, eczema, painful warts, and chronic psoriasis variants.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=pcod-pcos" style="text-decoration:none; color:inherit;">PCOD / PCOS</a></h4><p>Natural neuroendocrine balancing to resolve cyst developments, cycle irregularities, and related metabolic blocks.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=hair-health" style="text-decoration:none; color:inherit;">Hair & Scalp Health</a></h4><p>Treating underlying auto-immune hair fall, premature graying profiles, persistent dandruff, and alopecia patches.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=respiratory-care" style="text-decoration:none; color:inherit;">Respiratory Care</a></h4><p>Long-term relief structures for chronic sinusitis, breathing struggles, bronchitis flare-ups, and seasonal cold cycles.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=digestive-disorders" style="text-decoration:none; color:inherit;">Digestive Disorders</a></h4><p>Systemic therapies for managing Irritable Bowel Syndrome (IBS), chronic hyperacidity, gastritis, and constipation issues.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=joint-bone-care" style="text-decoration:none; color:inherit;">Joint & Bone Care</a></h4><p>Gentle long-term relief for osteoarthritis, painful rheumatoid conditions, cervical spondylosis, and shooting sciatica pains.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=thyroid-balance" style="text-decoration:none; color:inherit;">Thyroid Balance</a></h4><p>Targeted constitutional support to gently regulate underactive or overactive thyroid functions naturally over time.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=pediatric-care" style="text-decoration:none; color:inherit;">Pediatric Care</a></h4><p>Completely safe, sweet remedies to build children's innate immunity, recurring fevers, tonsillitis, and digestive changes.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=stress-anxiety" style="text-decoration:none; color:inherit;">Stress & Anxiety</a></h4><p>Mind-body therapeutic balancing targeting chronic sleeplessness, panic trends, nervous exhaustion, and mood shifts.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=weight-regulation" style="text-decoration:none; color:inherit;">Weight Regulation</a></h4><p>Correcting base sluggish metabolisms and underlying hormonal imbalances to help establish healthy weight ranges.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=allergic-rhinitis" style="text-decoration:none; color:inherit;">Allergic Rhinitis</a></h4><p>Gradual desensitization of hyper-reactive immune responses triggered by environmental dust, pollen, or animal dander.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=migraine-management" style="text-decoration:none; color:inherit;">Migraine Management</a></h4><p>Reducing the frequency, pain intensity, and underlying vascular triggers of recurring unilateral headaches.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=chronic-fatigue" style="text-decoration:none; color:inherit;">Chronic Fatigue</a></h4><p>Deep cellular revitalization protocols designed to lift systemic exhaustion, lethargy, and low energy trends.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=urinary-complaints" style="text-decoration:none; color:inherit;">Urinary Complaints</a></h4><p>Gentle management for recurrent urinary tract infections (UTIs) and natural aid in passing smaller kidney crystals.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=female-wellness" style="text-decoration:none; color:inherit;">Female Wellness</a></h4><p>Natural management plans for painful monthly cycles, pre-menstrual stress (PMS), and difficult menopausal changes.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=liver-gallbladder" style="text-decoration:none; color:inherit;">Liver & Gallbladder</a></h4><p>Supportive care setups for fatty liver changes, sluggish digestion, and metabolic filtering optimizations.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=lifestyle-disorders" style="text-decoration:none; color:inherit;">Lifestyle Disorders</a></h4><p>Constitutional stabilization assisting in managing systemic vascular tensions, stress markers, and diabetic fatigue.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=immunity-building" style="text-decoration:none; color:inherit;">Immunity Building</a></h4><p>Deep systemic structural adjustments to reverse patterns of falling ill frequently during weather transitions.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=mouth-ulcers" style="text-decoration:none; color:inherit;">Mouth & Oral Ulcers</a></h4><p>Root therapeutic controls targeting recurrent, painful aphthous ulcers linked to chronic digestive heat.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=neuralgia-nerve-pain" style="text-decoration:none; color:inherit;">Neuralgia & Nerve Pain</a></h4><p>Gentle constitutional management to soothe hyper-sensitive nerve pathways, numbness feelings, and tingling pains.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=geriatric-care" style="text-decoration:none; color:inherit;">Geriatric Care</a></h4><p>Composed, gentle medical support designed specifically to enhance lifestyle comfort, strengthen natural memory retention, and manage multiple age-related vulnerabilities safely.</p></div>
 </div>
 </section>
 <section id="testimonials">
