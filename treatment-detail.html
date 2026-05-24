@@ -407,10 +407,10 @@
         item.symptoms.forEach(sym => {
             const cardElement = document.createElement('div');
             cardElement.className = 'symptom-visual-card';
-            
+            /*${sym.design}*/
             cardElement.innerHTML = `
                 <div class="medical-diagram-container">
-                    ${sym.design}
+                    
                 </div>
                 <div class="symptom-info-pane">
                     <h4>${sym.title}</h4>
