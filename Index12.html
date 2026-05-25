@@ -166,11 +166,12 @@
             margin-left: auto;
                 margin-right: 0px;
                justify-content: center;
-            padding: 5px;
+            margin-left: min(40px, 5%); /* Adds a safe buffer space from the text */
+                padding: 5px;
             z-index: 1001;
         }
         
-        .logo-wrap { display: flex; align-items: center; text-decoration: none; color: --healing-seafoam; }
+        .logo-wrap { display: flex; align-items: center; text-decoration: none; margin-right: auto; color: --healing-seafoam; }
         .logo-text { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; color: var(--healing-seafoam); /* Uniform treatment color rule override */
     line-height: 1.25; /* Tightly snaps the text rows back together */ }
 
