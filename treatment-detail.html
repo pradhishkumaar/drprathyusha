@@ -74,45 +74,60 @@
         .action-bar-container { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--white); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08); z-index: 4000; display: flex; padding: 10px 15px; box-sizing: border-box; }
         .action-btn.call-bar-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; height: 50px; text-decoration: none; font-weight: 600; color: var(--white); background-color: var(--muthu-blue); border-radius: 8px; }
 
-        /* --- CLINIC HEADER --- */
-        header { background: var(--brand-navy); padding: 0 5%; height: 75px; position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; box-sizing: border-box; }
-        .logo-wrap { display: flex; align-items: center; text-decoration: none; color: white; margin-right: auto; }
+        /* --- CLINIC HEADER ALIGNED WITH INDEX12 --- */
+        header { 
+            background: var(--brand-navy); 
+            padding: 0 5%; 
+            height: 75px;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            justify-content: space-between; /* Ensures branding on left and menu on right */
+        }
+        
+        .logo-wrap { display: flex; align-items: center; text-decoration: none; color: white; }
         .css-logo { width: 42px; height: 42px; border: 2.5px solid var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; }
         .css-logo::before { content: '+'; color: var(--white); font-weight: 600; font-size: 38px; margin-top: -2px; }
         
-        /* TWO PARTS CLINIC NAME BRANDING BLOCK */
+        /* UPDATED COLOR STYLE: BOTH PARTS NOW SHARING SEACOAM ACCENT */
         .logo-text-block { display: flex; flex-direction: column; line-height: 1.2; }
-        .logo-text-top { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.5px; }
-        .logo-text-bottom { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 600; opacity: 0.9; letter-spacing: 1px; text-transform: uppercase; color: var(--healing-seafoam); }
+        .logo-text-top { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.5px; color: var(--healing-seafoam); }
+        .logo-text-bottom { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--healing-seafoam); opacity: 0.95; }
 
-        /* --- LEFT HAMBURGER MENU INTERFACE --- */
-        .menu-toggle-btn {
+        /* --- RIGHT-SIDED SIDEBAR HAMBURGER MENU BUTTON --- */
+        .menu-btn {
             background: none;
             border: none;
-            color: var(--white);
+            color: white;
+            font-size: 1.8rem;
             cursor: pointer;
             padding: 5px;
+            z-index: 1001;
             display: flex;
-            flex-direction: column;
-            gap: 5px;
-            margin-right: 15px;
+            align-items: center;
+            justify-content: center;
         }
-        .menu-toggle-btn span { display: block; width: 24px; height: 3px; background-color: var(--white); border-radius: 2px; }
 
+        /* --- RIGHT-SIDED SIDEBAR INTERFACE --- */
         .sidebar-menu {
             position: fixed;
             top: 0;
-            left: -300px;
+            right: -300px; /* Shifted hidden default to the right side */
             width: 300px;
             height: 100%;
             background-color: var(--brand-navy);
             z-index: 9999;
-            box-shadow: 5px 0 25px rgba(0,0,0,0.15);
-            transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 30px 25px;
             box-sizing: border-box;
         }
-        .sidebar-menu.active { left: 0; }
+        .sidebar-menu.active { right: 0; } /* Slides open cleanly from right to left */
         .sidebar-close-btn { background: none; border: none; color: var(--white); font-size: 32px; cursor: pointer; float: right; margin-bottom: 30px; line-height: 1; }
         .sidebar-links { list-style: none; padding: 0; margin: 60px 0 0 0; display: flex; flex-direction: column; gap: 20px; }
         .sidebar-links a { text-decoration: none; color: var(--white); font-size: 1.1rem; font-weight: 500; opacity: 0.9; transition: all 0.3s ease; display: block; }
@@ -127,9 +142,7 @@
 
         /* --- DETAIL PAGE GRID ARCHITECTURE --- */
         .detail-container { max-width: 900px; margin: 40px auto; padding: 0 20px; box-sizing: border-box; }
-        .back-link { display: inline-block; margin-bottom: 25px; color: var(--muthu-blue); text-decoration: none; font-weight: 600; }
         
-        /* MAINTAINED BASELINE DESIGN EXACTLY */
         .treatment-main-card {
             background: rgba(255, 255, 255, 0.82);
             padding: 40px;
@@ -150,7 +163,6 @@
         .symptom-section h2 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.7rem; margin-bottom: 25px; }
         .visual-symptom-grid { display: flex; flex-direction: column; gap: 30px; margin-bottom: 50px; }
         
-        /* MAINTAINED DESIGN VALUES, SWITCHED TEXT ALIGN TO LEFT */
         .symptom-visual-card { 
             background-color: rgba(255,255,255,0.82);
             padding: 35px 25px;
@@ -179,7 +191,7 @@
 </head>
 <body>
 
-<!-- SIDEBAR NAVIGATION CONTAINER (SLIDES FROM LEFT) -->
+<!-- SIDEBAR NAVIGATION CONTAINER (SLIDES FROM RIGHT) -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebarMenu()"></div>
 <nav class="sidebar-menu" id="sidebarMenu">
     <button class="sidebar-close-btn" onclick="toggleSidebarMenu()">×</button>
@@ -203,19 +215,15 @@
 </div>
 
 <header>
-    <button class="menu-toggle-btn" onclick="toggleSidebarMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
     <a href="Index12.html" class="logo-wrap">
         <div class="css-logo"></div>
-        <!-- SPLIT PARTS HEADER CLINIC NAME -->
         <div class="logo-text-block">
             <span class="logo-text-top">Dr. Prathyusha's</span>
             <span class="logo-text-bottom">Homoeo Clinic</span>
         </div>
     </a>
+    <!-- HAMBURGER MENU BUTTON MOVED TO RIGHT SIDE -->
+    <button class="menu-btn" onclick="toggleSidebarMenu()">☰</button>
 </header>
 
 <div class="desktop-nav-bar">
@@ -253,7 +261,6 @@
     </div>
 </main>
 
-<!-- CALL NOW ACTION BUTTON UPDATED WORDING TEXT -->
 <div class="action-bar-container">
     <a href="tel:+919790911627" class="action-btn call-bar-btn">Free first consultation / Call Now</a>
 </div>
@@ -529,8 +536,10 @@
     }
 
     function toggleSidebarMenu() {
-        document.getElementById('sidebarMenu').classList.toggle('active');
-        document.getElementById('sidebarOverlay').classList.toggle('active');
+        const menu = document.getElementById('sidebarMenu');
+        const overlay = document.getElementById('sidebarOverlay');
+        menu.classList.toggle('active');
+        overlay.classList.toggle('active');
     }
 
     function scrollToTopOfThePage() {
