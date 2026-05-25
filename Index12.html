@@ -87,8 +87,8 @@
             bottom: 155px;
             right: 25px;
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
             z-index: 5000;
 }
         /* --- FLOATING scroll top button --- */
@@ -105,7 +105,7 @@
             font-weight: bold;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
         }
         .scroll-top-btn { background-color: #475569; }
@@ -475,6 +475,7 @@
             /* 1. Hide mobile layout constraints */
             .action-bar-container { display: none !important; }
             .wa-float { bottom: 30px; right: 30px; }
+                .floating-utility-group { bottom: 60px; right: 40px; }
 
             /* 2. Menu Navigation Bar Transformation */
             .menu-btn { display: none !important; }
