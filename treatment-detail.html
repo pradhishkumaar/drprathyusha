@@ -96,7 +96,7 @@
             width: 42px;
             height: 42px;
             background-color: var(--brand-navy); 
-            border: 2.5px solid var(--white);       
+            border: 2.5px solid var(--healing-seafoam);       
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -122,13 +122,14 @@
             font-weight: 700; 
             letter-spacing: 0.5px; 
             color: var(--healing-seafoam); 
+            line-height: 1.2; /* Controls the spacing between the broken lines */
         }
 
         /* --- RIGHT-SIDED SIDEBAR HAMBURGER MENU BUTTON --- */
         .menu-btn {
             background: none;
             border: none;
-            color: white;
+            color: var(--healing-seafoam);
             font-size: 1.8rem;
             cursor: pointer;
             padding: 5px;
@@ -148,7 +149,7 @@
             background-color: var(--brand-navy);
             z-index: 9999;
             box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: right 0.1s cubic-bezier(0.16, 1, 0.3, 1);
             padding: 30px 25px;
             box-sizing: border-box;
         }
@@ -242,7 +243,7 @@
     <a href="Index12.html" class="logo-wrap">
         <div class="css-logo"></div>
         <!-- CHANGED HERE: Replaced the row splits with the single exact .logo-text container from Index12.html -->
-        <span class="logo-text">Dr. Prathyusha's Homoeo Clinic</span>
+        <span class="logo-text">Dr. Prathyusha's<br>Homoeo Clinic</span>
     </a>
     <button class="menu-btn" onclick="toggleSidebarMenu()">☰</button>
 </header>
