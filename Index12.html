@@ -216,18 +216,33 @@
         .sidebar a { padding: 15px 35px; text-decoration: none; font-size: 1.1rem; color: var(--white); display: block; font-weight: 600; }
         .sidebar .close-btn { display: block; padding: 10px 35px; font-size: 2.2rem; cursor: pointer; color: var(--white); text-align: left; }
         
-        /* Sidebar Logo Header */
-        .sidebar-header-branding { 
-            padding: 10px 35px 20px 35px; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
-            border-bottom: 1px solid rgba(26, 60, 90, 0.1);
-            margin-bottom: 15px;
+        /* --- RIGHT-SIDED SIDEBAR INTERFACE --- */
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--brand-navy);
+            z-index: 9999;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            transition: right 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 30px 25px;
+            box-sizing: border-box;
         }
-        .sidebar-header-branding .css-logo { background-color: var(--brand-navy); border: 2.5px solid var(--brand-navy); }
-        .sidebar-header-text { font-size: 0.95rem; font-weight: bold; color: var(--white); font-family: 'Playfair Display', serif; line-height: 1.3; }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2500; }
+        .sidebar-menu.active { right: 0; }
+        .sidebar-close-btn { background: none; border: none; color: var(--white); font-size: 32px; cursor: pointer; float: right; margin-bottom: 30px; line-height: 1; }
+        .sidebar-links { list-style: none; padding: 0; margin: 60px 0 0 0; display: flex; flex-direction: column; gap: 20px; }
+        .sidebar-links a { text-decoration: none; color: var(--white); font-size: 1.1rem; font-weight: 500; opacity: 0.9; transition: all 0.3s ease; display: block; }
+        .sidebar-links a:hover { color: var(--healing-seafoam); padding-left: 5px; }
+        
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(2px); z-index: 9998; display: none; }
+        .sidebar-overlay.active { display: block; }
+
+        .desktop-nav-bar { background-color: var(--white); border-bottom: 1px solid #e2e8f0; position: sticky; top: 75px; z-index: 999; }
+        .desktop-nav-container { max-width: 1100px; margin: 0 auto; display: flex; padding: 12px 20px; }
+        .desktop-nav-container a { text-decoration: none; color: var(--brand-navy); font-weight: 600; }
+        /*.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2500; }*/
 
         section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
         .section-title { text-align: center; color: var(--brand-navy); margin-bottom: 30px; font-size: 2.2rem; font-family: 'Playfair Display', serif; }
@@ -557,24 +572,26 @@
         First Consultation Free/Call Now
     </a>
 </div>
-<div class="overlay" id="overlay"></div>
-<nav class="sidebar" id="mySidebar">
-<div class="sidebar-content">
-<span class="close-btn" onclick="closeNav()">×</span>
-<div class="sidebar-header-branding">
-<div class="css-logo"></div>
-<div class="sidebar-header-text">Dr. Prathyusha's<br/>Homoeo Clinic</div>
-</div>
-<a href="homeopathy-info.html">About Homeopathy</a>
-<a href="#home" onclick="closeNav()">Home</a>
-<a href="#about" onclick="closeNav()">About Us</a>
-<a href="#services" onclick="closeNav()">Treatments</a>
-<a href="#testimonials" onclick="closeNav()">Success Stories</a>
-<a href="#faq" onclick="closeNav()">FAQs</a>
-<a href="#contact" onclick="closeNav()">Clinic Location</a>
-</div>
-</nav>
-<header>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeNav()"></div>
+
+<nav class="sidebar-menu" id="mySidebar">
+    <button class="sidebar-close-btn" onclick="closeNav()">×</button>
+    
+   /* <div class="sidebar-header-branding">
+        <div class="css-logo"></div>
+        <div class="sidebar-header-text">Dr. Prathyusha's<br>Homoeo Clinic</div>
+    </div>*/
+
+    <ul class="sidebar-links">
+        <li><a href="homeopathy-info.html">About Homeopathy</a></li>
+        <li><a href="#home" onclick="closeNav()">Home</a></li>
+        <li><a href="#about" onclick="closeNav()">About Us</a></li>
+        <li><a href="#services" onclick="closeNav()">Treatments</a></li>
+        <li><a href="#testimonials" onclick="closeNav()">Success Stories</a></li>
+        <li><a href="#faq" onclick="closeNav()">FAQs</a></li>
+        <li><a href="#contact" onclick="closeNav()">Clinic Location</a></li>
+    </ul>
+</nav><header>
 
 <a class="logo-wrap" href="#">
 <div class="css-logo"></div>
@@ -784,9 +801,25 @@ Read Our Google Reviews
 <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 40px; text-align: center;">© 2026 Dr. Prathyusha's Homoeo Clinic. All Rights Reserved.</p>
 </footer>
 <script>
-    function openNav(event) { event.stopPropagation(); document.getElementById("mySidebar").style.width = "280px"; document.getElementById("overlay").style.display = "block"; }
-    function closeNav() { document.getElementById("mySidebar").style.width = "0"; document.getElementById("overlay").style.display = "none"; }
-    function closeNavOutside(event) { const sidebar = document.getElementById("mySidebar"); if (sidebar.style.width === "280px" && !sidebar.contains(event.target)) { closeNav(); } }
+  function openNav(event) { 
+    if (event) event.stopPropagation(); 
+    document.getElementById("mySidebar").classList.add("active"); 
+    document.getElementById("sidebarOverlay").classList.add("active"); 
+}
+
+function closeNav() { 
+    document.getElementById("mySidebar").classList.remove("active"); 
+    document.getElementById("sidebarOverlay").classList.remove("active"); 
+}
+
+// Updated click-outside helper to watch for the active class instead of 280px width
+function closeNavOutside(event) { 
+    const sidebar = document.getElementById("mySidebar"); 
+    // Checks if the sidebar menu is currently open on screen
+    if (sidebar.classList.contains("active") && !sidebar.contains(event.target)) { 
+        closeNav(); 
+    } 
+}
     
     // Desktop Modal Trigger Controls
     function openAppointmentModal() { document.getElementById("appointmentModal").style.display = "flex"; }
