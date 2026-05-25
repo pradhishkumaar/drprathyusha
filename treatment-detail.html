@@ -74,7 +74,7 @@
         .action-bar-container { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--white); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08); z-index: 4000; display: flex; padding: 10px 15px; box-sizing: border-box; }
         .action-btn.call-bar-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; height: 50px; text-decoration: none; font-weight: 600; color: var(--white); background-color: var(--muthu-blue); border-radius: 8px; }
 
-        /* --- CLINIC HEADER ALIGNED WITH INDEX12 --- */
+        /* --- CLINIC HEADER: EXACT MATCH WITH INDEX12 STRUCTURAL LAYOUT --- */
         header { 
             background: var(--brand-navy); 
             padding: 0 5%; 
@@ -87,39 +87,43 @@
             width: 100%;
             box-sizing: border-box;
             box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            justify-content: space-between; /* Ensures branding on left and menu on right */
+            justify-content: space-between; /* Keeps logo elements left, hamburger button right */
         }
         
         .logo-wrap { display: flex; align-items: center; text-decoration: none; color: white; }
-        .css-logo { width: 42px; height: 42px; border: 2.5px solid var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; }
-        .css-logo::before { content: '+'; color: var(--white); font-weight: 600; font-size: 38px; margin-top: -2px; }
         
-        /* UPDATED COLOR STYLE: BOTH PARTS NOW SHARING SEACOAM ACCENT */
-     CSS
+        .css-logo {
+            width: 42px;
+            height: 42px;
+            background-color: var(--brand-navy); 
+            border: 2.5px solid var(--white);       
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .css-logo::before {
+            content: '+';
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 0;
+            margin-top: -2px;
+        }
+        
+        /* EXACT TYPOGRAPHY AND SIZE FROM INDEX12.HTML (but customized to requested healing-seafoam color tint) */
+        .logo-text { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            letter-spacing: 0.5px; 
+            color: var(--healing-seafoam); 
+        }
 
-
-.logo-text-block { 
-    display: flex; 
-    flex-direction: column; 
-    line-height: 1.0; /* Tightens the spacing gap between lines */
-}
-.logo-text-top { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.35rem; /* Enlarged to match your index profile size */
-    font-weight: 700; 
-    letter-spacing: 0.2px; 
-    color: var(--healing-seafoam);
-    margin-bottom: 2px; /* Smooth spacing buffer */
-}
-.logo-text-bottom { 
-    font-family: 'Poppins', sans-serif; 
-    font-size: 0.8rem; /* Set to the exact small layout scaling */
-    font-weight: 600; 
-    letter-spacing: 1.8px; /* Adds the exact letter spacing stretch */
-    text-transform: uppercase; 
-    color: var(--healing-seafoam); 
-    opacity: 0.9; 
-}
         /* --- RIGHT-SIDED SIDEBAR HAMBURGER MENU BUTTON --- */
         .menu-btn {
             background: none;
@@ -138,7 +142,7 @@
         .sidebar-menu {
             position: fixed;
             top: 0;
-            right: -300px; /* Shifted hidden default to the right side */
+            right: -300px;
             width: 300px;
             height: 100%;
             background-color: var(--brand-navy);
@@ -148,7 +152,7 @@
             padding: 30px 25px;
             box-sizing: border-box;
         }
-        .sidebar-menu.active { right: 0; } /* Slides open cleanly from right to left */
+        .sidebar-menu.active { right: 0; }
         .sidebar-close-btn { background: none; border: none; color: var(--white); font-size: 32px; cursor: pointer; float: right; margin-bottom: 30px; line-height: 1; }
         .sidebar-links { list-style: none; padding: 0; margin: 60px 0 0 0; display: flex; flex-direction: column; gap: 20px; }
         .sidebar-links a { text-decoration: none; color: var(--white); font-size: 1.1rem; font-weight: 500; opacity: 0.9; transition: all 0.3s ease; display: block; }
@@ -192,7 +196,6 @@
             border-top: 6px solid var(--healing-seafoam);
             box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
             text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .symptom-info-pane { padding: 25px; text-align: left; }
         .symptom-info-pane h4 { font-family: 'Playfair Display', serif; color: var(--brand-navy); font-size: 1.3rem; margin: 0 0 10px 0; text-align: left; }
@@ -238,12 +241,9 @@
 <header>
     <a href="Index12.html" class="logo-wrap">
         <div class="css-logo"></div>
-        <div class="logo-text-block">
-            <span class="logo-text-top">Dr. Prathyusha's</span>
-            <span class="logo-text-bottom">Homoeo Clinic</span>
-        </div>
+        <!-- CHANGED HERE: Replaced the row splits with the single exact .logo-text container from Index12.html -->
+        <span class="logo-text">Dr. Prathyusha's Homoeo Clinic</span>
     </a>
-    <!-- HAMBURGER MENU BUTTON MOVED TO RIGHT SIDE -->
     <button class="menu-btn" onclick="toggleSidebarMenu()">☰</button>
 </header>
 
@@ -448,7 +448,7 @@
             desc: "From menarche to menopause, a woman's health depends on smooth hormonal transitions. Our specialized therapies provide gentle support for difficult cycles and life adjustments, helping to regulate smooth muscle tone, ease cramping, and stabilize emotional shifts naturally.",
             advantage: "This helps relieve severe monthly pain, addresses pre-cycle mood shifts, and handles menopausal heat spikes.",
             symptoms: [
-                { title: "Dysmenorrhea Severe Cramps", desc: "Intense, radiating uterine muscle spasms before and during cycles, causing pelvic pain." },
+                { title: "Dynamic Dysmenorrhea Cramps", desc: "Intense, radiating uterine muscle spasms before and during cycles, causing pelvic pain." },
                 { title: "Premenstrual Mood Overloads", desc: "Severe emotional shifts, bloating, and breast tenderness during the late luteal cycle phase." },
                 { title: "Perimenopausal Hot Flashes", desc: "Sudden, intense heat waves and night sweats caused by changing estrogen signals in the brain." }
             ]
