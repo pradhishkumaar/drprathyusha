@@ -213,6 +213,66 @@
         .cta-btn { background: var(--wa-green); color: var(--white); padding: 16px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 15px rgba(37,211,102,0.3); margin-top: 15px; }
 
         @media (min-width: 768px) { body { padding-bottom: 0; } .action-bar-container { display: none !important; } .floating-utility-group { bottom: 30px; right: 30px; } }
+ 
+  .treatment-footer{
+    background:#2f4858;
+    color:white;
+    padding:50px 20px;
+    text-align:center;
+    margin-top:60px;
+}
+
+.treatment-footer h3{
+    margin-top:0;
+    margin-bottom:15px;
+    font-family:'Playfair Display',serif;
+}
+
+.treatment-footer p{
+    opacity:.95;
+    margin:8px 0;
+}
+
+.treatment-footer a{
+    color:white;
+    text-decoration:none;
+}
+
+.footer-buttons{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.footer-call-btn,
+.footer-wa-btn{
+    padding:12px 22px;
+    border-radius:40px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.footer-call-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.footer-wa-btn{
+    background:#25D366;
+    color:white;
+}
+
+.footer-copy{
+    margin-top:30px;
+    font-size:.85rem;
+    opacity:.7;
+}  
+    
+    
+    
+    
     </style>
 </head>
 <body>
@@ -569,6 +629,39 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
+<footer class="treatment-footer">
+    <div class="treatment-footer-content">
 
+        <h3>Dr. Prathyusha's Homoeo Clinic</h3>
+
+        <p>
+            Shop No. 8, Ground Floor, Uma Complex,
+            Balfour Road, Kellys, Chennai – 600010
+        </p>
+
+        <p>
+            📞 <a href="tel:+919790911627">
+                +91 97909 11627
+            </a>
+        </p>
+
+        <div class="footer-buttons">
+            <a href="tel:+919790911627" class="footer-call-btn">
+                Call Now
+            </a>
+
+            <a href="https://wa.me/919790911627"
+               target="_blank"
+               class="footer-wa-btn">
+                WhatsApp
+            </a>
+        </div>
+
+        <p class="footer-copy">
+            © 2026 Dr. Prathyusha's Homoeo Clinic
+        </p>
+
+    </div>
+</footer>
 </body>
 </html>
