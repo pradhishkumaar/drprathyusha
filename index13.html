@@ -1,0 +1,1392 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Prathyusha Homoeo Clinic | Best Homeopathy Clinic in Chennai</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --brand-navy: #2f4858;
+            --healing-seafoam: #b7d6cf;
+            --soft-slate: #f8fafc;
+            --white: #ffffff;
+            --text-main:  #5f6f81;
+            --accent-gold: #c5a059;
+            --wa-green: #25D366;
+            /* muthudigital.com inspired vibrant brand blue */
+            --muthu-blue: #2563eb;
+            --muthu-blue-hover: #0052a3;
+		--dhacu-teal: #0d7c85;        /* Core brand teal */
+  
+ 		 --dhacu-teal-hover: #0a5f66;  /* Deep rich hover state */
+   
+		 --dhacu-text-white: #ffffff;
+		--dhacu-teal-light: #458da3;
+		--nav-bar: #f0f7f7;
+        }
+
+        html 
+        {
+         overflow-x: hidden;
+                scroll-behavior: smooth; }
+       body 
+        {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding-bottom: 85px;
+    background-color: var(--soft-slate);
+    color: var(--text-main);
+    line-height: 1.75;
+        overflow-x: clip;
+   -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+    
+}
+        /* --- STICKY CALL ACTION BAR --- */
+       .action-bar-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: var(--white);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+
+    z-index: 4000;
+    display: flex;
+
+    padding: 10px 15px;
+
+    box-sizing: border-box;
+
+    width: auto;
+    max-width: 100vw;
+
+    overflow: hidden;
+}
+
+        .action-btn.call-bar-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--white);
+            background-color: var(--muthu-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+        }
+
+        .action-btn.call-bar-btn:hover {
+            background-color: var(--muthu-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.3);
+        }
+.floating-utility-group {
+            position: fixed;
+            bottom: 155px;
+            right: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+}
+        /* --- FLOATING scroll top button --- */
+       .scroll-top-btn {
+            width: 45px;
+            height: 45px;
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+        .scroll-top-btn { background-color: #475569; }
+        .scroll-top-btn:hover { transform: translateY(-3px); background-color: var(--muthu-blue); }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .wa-float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 85px; /* Offset to stay cleanly above the new call bar on mobile */
+            right: 20px;
+            background-color: var(--wa-green);
+            color: var(--white); 
+            border: none; 
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            animation: pulse 2.1s infinite;
+        }
+        .wa-float:hover {
+            transform: translateY(-5px);
+            background-color: var(--white);
+            color: var(--wa-green);
+            box-shadow: 0 10px 20px rgba(26, 60, 90, 0.2);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- LOGO --- */
+        .css-logo {
+            width: 42px;
+            height: 42px;
+            background-color: var(--brand-navy); 
+            border: 2.5px solid var(--healing-seafoam);       
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .css-logo::before {
+            content: '+';
+            color: var(--healing-seafoam);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 0;
+            margin-top: -2px;
+        }
+        header { 
+            background: var(--brand-navy); 
+            padding: 0 5%; 
+            height: 75px;
+           top: auto;
+            
+            display: flex;
+            align-items: center;
+              justify-content: space-between; /* Ensures smooth distribution of logo vs right-side items */
+                width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+              
+        }
+
+.site-header-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures it stays on top of images/content */
+    width: 100%;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Adds a subtle lift from the content */
+}
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: var(--healing-seafoam);
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin-left: auto;
+                margin-right: 0px;
+               justify-content: center;
+            margin-left: min(40px, 5%); /* Adds a safe buffer space from the text */
+                padding: 5px;
+            z-index: 1001;
+        }
+        
+        .logo-wrap { display: flex; align-items: center; text-decoration: none; margin-right: auto; color: var(--healing-seafoam); }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; color: var(--healing-seafoam); /* Uniform treatment color rule override */
+    line-height: 1.25; /* Tightly snaps the text rows back together */ }
+
+     
+
+
+
+       
+
+   /* --- DESKTOP NAVIGATION BAR --- */
+        .desktop-nav-bar {
+            display: none;
+            background-color: var(--nav-bar);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 75px;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .desktop-nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 12px 20px;
+        }
+        .desktop-nav-container a {
+            
+		text-decoration: none;
+            color: var(--brand-navy);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .desktop-nav-container a:hover {
+            color: var(--dhacu-teal);
+        }
+
+       
+        .sidebar-content { flex-grow: 1; padding-top: 20px; }
+        .sidebar a { padding: 15px 35px; text-decoration: none; font-size: 1.1rem; color: var(--white); display: block; font-weight: 600; }
+        .sidebar .close-btn { display: block; padding: 10px 35px; font-size: 2.2rem; cursor: pointer; color: var(--white); text-align: left; }
+        
+        /* --- RIGHT-SIDED SIDEBAR INTERFACE --- */
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--brand-navy);
+            z-index: 9999;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            transition: right 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 30px 25px;
+            box-sizing: border-box;
+        }
+        .sidebar-menu.active { right: 0; }
+        .sidebar-close-btn { background: none; border: none; color: var(--white); font-size: 32px; cursor: pointer; float: right; margin-bottom: 30px; line-height: 1; }
+        .sidebar-links { list-style: none; padding: 0; margin: 60px 0 0 0; display: flex; flex-direction: column; gap: 20px; }
+        .sidebar-links a { text-decoration: none; color: var(--white); font-size: 1.1rem; font-weight: 500; opacity: 0.9; transition: all 0.3s ease; display: block; }
+        .sidebar-links a:hover { color: var(--healing-seafoam); padding-left: 5px; }
+        
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(2px); z-index: 9998; display: none; }
+        .sidebar-overlay.active { display: block; }
+
+        /*.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2500; }*/
+
+        section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; color: var(--brand-navy); margin-bottom: 30px; font-size: 2.2rem; font-family: 'Playfair Display', serif; }
+
+        /* --- HERO SPLIT SETUP --- */
+        .hero { padding: 20px 14px; text-align: center; background: #f0f7f7; border-bottom: 1px solid #eee; }
+       .hero h1 { font-size: 2.4rem; color: var(--brand-navy); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+	 .hero h2 { font-size: 2rem; color: var(--brand-navy); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .hero-left { max-width: 100%; }
+        
+        /* Desktop Hero Right Container */
+        .hero-right { display: none; width: 45%; justify-content: center; align-items: center; position: relative; }
+        .hero-card-display { width: 100%; max-width: 440px; }
+        .hero-card-display .card { 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
+            border-top: 6px solid var(--healing-seafoam); 
+            display: none; 
+            animation: fadeIn 0.6s ease-in-out;
+            padding: 70px 35px; 
+            border-radius: 16px;
+        }
+      
+        
+        /* --- BOOK APPOINTMENT CTA --- */
+        .cta-btn { 
+            background: var(--wa-green); 
+            color: var(--white); 
+            padding: 18px 35px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            display: inline-block; 
+            border: none; 
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .cta-btn:hover {
+            background: var(--muthu-blue); 
+            color: white;
+            box-shadow: 0 10px 20px rgba(26, 60, 90, 0.2);
+            transform: translateY(-2px);
+        }
+
+      
+.dhacu-btn {
+    display: inline-block;
+    background-color: var(--dhacu-teal) !important;
+    color: var(--dhacu-text-white) !important;
+    font-family: 'Poppins', sans-serif;    font-size: 13px !important;           /* dhacu uses a precise 13px/14px look */
+    font-weight: 500 !important;           /* Slightly lighter than 600 for that premium aesthetic */
+    text-transform: uppercase;             /* Capitalized styling */
+    letter-spacing: 1.5px;                 /* Clean tracking between letters */
+    padding: 12px 28px !important;       /* Balanced padding ratio */
+    border-radius: 50px !important;      /* Perfect rounded pill geometry */
+    border: none !important;
+    cursor: pointer;
+    text-decoration: glow;
+    box-shadow: 0 4px 10px rgba(13, 124, 133, 0.15); /* Soft, professional elevation shadow */
+    transition: all 0.25s ease-in-out !important;    /* Silky-smooth color morphing */
+    text-align: center;
+}
+
+/* Micro-interaction Hover & Active Actions */
+.dhacu-btn:hover {
+    background-color: var(--dhacu-teal-hover) !important;
+    transform: translateY(-3px);        /* Soft premium vertical lift */
+    box-shadow: 0 6px 14px rgba(13, 124, 133, 0.25);
+}
+
+.dhacu-btn:active {
+    transform: translateY(5px);         /* Tactile click press feedback */
+}
+
+  /* --- DESKTOP APPOINTMENT MODAL FORM --- */
+        .appointment-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(26, 60, 90, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 6000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: var(--white);
+            padding: 35px 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 500px;
+		box-sizing: border-box;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            animation: fadeIn 0.4s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--brand-navy);
+            font-weight: bold;
+        }
+        .modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--brand-navy);
+            margin-top: 0;
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+        }
+        .form-group { margin-bottom: 16px; text-align: left; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 6px; color: var(--brand-navy); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;
+            font-family: 'Poppins', sans-serif; font-size: 0.95rem; box-sizing: border-box;
+            background-color: #fafbfb;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--muthu-blue);
+            background-color: var(--white);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.5;
+        }
+        .form-submit-btn {
+            width: 100%; background: var(--muthu-blue); color: white; padding: 14px;
+            border: none; border-radius: 8px; font-weight: bold; font-size: 1rem;
+            cursor: pointer; transition: all 0.3s; margin-top: 5px;
+        }
+        .form-submit-btn:hover { background: var(--brand-navy); }
+        .form-submit-btn:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+
+        /* --- CONTENT TEMPLATES --- */
+        .about-card { background: white; padding: 45px; border-radius: 8px; border-top: 6px solid var(--healing-seafoam); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .exp-tag { color: var(--accent-gold); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; letter-spacing: 1px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .card
+        { 
+                background-color: #f0f7f7;
+                padding: 35px 25px;
+                border-radius: 22px;
+                border: 1px solid rgba(226,232,240,0.65);
+                border-top: 6px solid var(--healing-seafoam);
+                box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04);
+                text-align: center;
+               
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(15,23,42,0.06); }
+        .card h4 { color: var(--brand-navy); font-size: 1.3rem; margin-top: 0; font-family: 'Playfair Display', serif; margin-bottom: 12px; }
+        .card p { font-size: 0.9rem; color: #555; margin: 0; }
+
+        .carousel-container { max-width: 750px; margin: 0 auto; }
+        .t-card-wrap { background: white; padding: 50px 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-left: 6px solid var(--healing-seafoam); min-height: 180px; display: flex; flex-direction: column; justify-content: center; }
+        .testimonial-item { display: none; animation: fadeIn 0.8s ease-in-out; }
+        .testimonial-item.active { display: block; }
+        .t-text { font-style: italic; font-size: 1.15rem; color: var(--text-main); margin-bottom: 20px; }
+        .t-name { font-weight: bold; color: var(--brand-navy); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .faq-item { background: #f0f7f7; margin-bottom: 12px; border-radius: 8px; border: 1px solid #eee; text-align: left; }
+        .faq-question { padding: 22px; font-weight: 600; color: var(--brand-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 22px 22px; display: none; color: #555; border-top: 1px solid #f9f9f9; padding-top: 15px; font-size: 0.95rem; }
+
+        /* --- MODERN FOOTER COMPONENT STYLE SETUP --- */
+        .address-section { background: #f1f5f9; padding: 60px 20px 30px 20px; border-top: 1px solid #e2e8f0; text-align: center; }
+        .footer-grid-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; text-align: center; }
+        
+        .footer-col-nav h4, .footer-col-info h2 { font-family: 'Playfair Display', serif; color: var(--brand-navy); margin-top: 0; margin-bottom: 20px; }
+        .footer-col-info h2 { font-size: 1.8rem; }
+        
+        /* Column Links & Category Sub-lists */
+        .footer-nav-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+        .footer-nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .footer-nav-links a:hover { color: var(--muthu-blue); }
+        
+        .footer-sub-heading { font-weight: 600; color: var(--brand-navy); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin: 25px 0 8px 0; }
+        .footer-treatment-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+        .footer-treatment-links a { text-decoration: none; color: #555; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-treatment-links a:hover { color: var(--muthu-blue); }
+
+        .map-btn { background: var(--brand-navy); color: white; padding: 14px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin: 15px 0 25px 0; transition: background 0.3s; }
+        .map-btn:hover { background: var(--muthu-blue); }
+        .phone-link { color: inherit; text-decoration: none; font-weight: bold; }
+        .hours { font-weight: 600; color: var(--brand-navy); margin: 8px 0; }
+
+        /* Mobile Visibility Defaults */
+        .cta-desktop-only { display: none; }
+        .cta-mobile-only { display: inline-block; }
+
+        /* Mobile Dual-Button Structure Controls */
+        .mobile-hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* Adds space between the two actions */
+            margin-top: 20px;
+        }
+        
+        /* Styled variation for the alternate "Ask Doctor" action */
+        .cta-btn.secondary-mobile-btn {
+            background: var(--brand-navy);
+            box-shadow: 0 4px 15px rgba(26, 60, 90, 0.2);
+        }
+        .cta-btn.secondary-mobile-btn:hover {
+            background: var(--muthu-blue);
+        }
+  
+      
+      
+
+        /* ==========================================================================
+           DESKTOP ENHANCEMENTS (MEDIA QUERY FOR PC/LAPTOP BROWSING)
+           ========================================================================= */
+        @media (min-width: 768px) {
+            body { padding-bottom: 0; }
+            
+            /* 1. Hide mobile layout constraints */
+            .action-bar-container { display: none !important; }
+            .wa-float { bottom: 30px; right: 30px; }
+        .floating-utility-group { bottom: 90px; right: 30px; }
+
+            /* 2. Menu Navigation Bar Transformation */
+            .menu-btn { display: none !important; }
+            .desktop-nav-bar { display: block; }
+
+            /* 3. Split Screen Hero Grid System */
+            .hero { display: flex; align-items: center; justify-content: space-between; text-align: left; max-width: 1100px; margin: 0 auto; padding: 40px 20px; gap: 30px; }
+            .hero h2 { font-size: 2.4rem; line-height: 1.25; }
+            .hero-left { max-width: 52%; }
+            .hero-right { display: flex; }
+            
+            /* Action button swapping rules */
+            .cta-mobile-only { display: none !important; }
+            .cta-desktop-only { display: inline-block !important; }
+            .mobile-hero-actions { display: none !important; }
+
+            /* 4. Desktop Two-Column Balanced Footer Grid Setup */
+            .footer-grid-container { flex-direction: row; justify-content: space-between; text-align: left; gap: 50px; }
+            .footer-col-nav { width: 50%; display: block; }
+            .footer-col-info { width: 45%; text-align: left; }
+            .footer-nav-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; text-align: left; }
+            .footer-treatment-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; text-align: left; }
+        }
+
+        /* Mobile Visibility Defaults */
+        .cta-desktop-only { display: none; }
+        .cta-mobile-only { display: inline-block; }
+
+      
+        
+      
+
+        /* Ensure mobile action box completely disappears on computers */
+        @media (min-width: 768px) {
+            .mobile-hero-actions { display: none !important; }
+
+       
+        }
+
+        
+ @media (min-width: 1024px) {
+
+.hero h2 { font-size: 3.3rem; line-height: 1.5; }
+}
+
+.hero-doctor-mobile{
+    text-align:center;
+    margin-bottom:0px;
+}
+
+.hero-doctor-mobile img {
+    width: 100%;
+    max-width: 280px;      /* Restricts growth on mobile layout */
+    height: auto;
+    aspect-ratio: 1 / 1;   /* Crucial: Keeps the image a perfect square so border-radius stays a circle */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+
+.doctor-about{
+    display:flex;
+    gap:15px;
+    align-items:left;
+}
+
+
+.doctor-photo img{
+    width:360px;
+    height:420px;
+    object-fit:cover;
+    border-radius:50px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+.treatment-hint{
+    text-align:center;
+    font-weight:600;
+    margin-bottom:25px;
+    color:var(--brand-navy);
+}
+
+.card h4 a{
+    text-decoration:underline !important;
+    text-underline-offset:4px;
+}
+
+
+.card:hover h4 a{
+    color: var(--dhacu-teal) !important;
+}
+
+/* Header Button Adjustments */
+.header-cta {
+    padding: 10px 24px !important;
+    font-size: 0.9rem;
+    border-radius: 7px !important;
+    background: var(--muthu-blue); /* Stays green like your primary CTA style */
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2) !important;
+}
+
+.header-cta:hover {
+    background: var(--muthu-blue) !important;
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Ensure header balances items properly on desktop */
+
+@media (min-width: 768px) {
+
+    header {
+        padding: 0 10%; /* Gives the header content a cleaner margin profile on wider displays */
+  
+  }
+
+.hero-doctor-mobile img {
+        max-width: 400px; /* Bumps up the image size beautifully on large monitors */
+    }
+}
+
+
+
+
+/* ==========================================================================
+   1. DHACU-STYLE MOBILE TOP RIBBON (Mobile Only)
+   ========================================================================== */
+.dhacu-top-bar {
+    display: none; /* Hidden on desktop by default */
+}
+
+@media (max-width: 767px) {
+    .dhacu-top-bar {
+        display: flex; /* Active only on mobile screens */
+	
+	      
+	width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .dhacu-bar-link {
+        flex: 1; /* Perfect 50/50 split */
+        text-align: center;
+        text-decoration: none;
+        color: var(--white, #ffffff) !important;
+        font-size: 13px;
+        font-weight: 100;
+        letter-spacing: 1px;
+        padding: 11px 5px;
+        display: flex;
+        
+	align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        transition: filter 0.1s ease;
+    }
+
+    .phone-block {
+        background-color: var(--dhacu-teal-light, #3a8394); 
+        border-right: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .appt-block {
+        background-color: var(--dhacu-teal-light, #458da3);
+    }
+
+    .phone-block:hover, .appt-block:hover {
+        filter: brightness(0.9);
+    }
+}
+
+@media (max-width: 360px) {
+    .dhacu-bar-link {
+        font-size: 11px;
+        padding: 12px 2px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+<meta property="og:title" content="Dr. Prathyusha Homoeo Clinic | Best Homeopathy Clinic in Chennai" />
+<meta property="og:description" content="Personalized constitutional homeopathy treatment by Dr. Prathyusha (BHMS) for PCOS, skin allergies, hair fall, and chronic ailments in Kilpauk, Chennai." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pradhishkumaar.github.io/drprathyusha/" />
+<meta property="og:image" content="https://pradhishkumaar.github.io/drprathyusha/homeoclinic.webp" />
+<meta property="og:image:type" content="image/webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Dr. Prathyusha Homoeo Clinic" />
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Dr. Prathyusha Homoeo Clinic",
+  "url": "https://pradhishkumaar.github.io/drprathyusha/",
+  "image": "https://pradhishkumaar.github.io/drprathyusha/homeoclinic.webp",
+  "telephone": "+91 97909 11627",
+  "priceRange": "₹₹",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127"
+  },
+  "medicalSpecialty": "Homeopathy",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Shop No. 8, Ground Floor, Uma Complex, Balfour Road, Kellys",
+    "addressLocality": "Chennai",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "600010",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "13.08598395617768",
+    "longitude": "80.24507327116439"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "10:30",
+      "closes": "13:30"
+    }
+  ],
+  "employee": {
+    "@type": "MedicalOrganization",
+    "name": "Dr. Prathyusha",
+    "jobTitle": "Homeopathic Physician",
+    "qualification": "BHMS (Bachelor of Homoeopathic Medicine and Surgery)"
+  },
+  "medicalSpecialtyServices": [
+    {
+      "@type": "MedicalTherapy",
+      "name": "PCOS Homeopathy Treatment",
+      "aspect": "Constitutional neuroendocrine balancing"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Skin and Allergy Homeopathy Care",
+      "aspect": "Constitutional root healing for psoriasis, eczema, and chronic dermatological allergies"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Hair and Scalp Restoration Therapy",
+      "aspect": "Treatment for auto-immune hair fall and alopecia"
+    }
+  ],
+  "sameAs": [
+    "https://maps.app.goo.gl/x3gq5u6ygXWgtXvP9",
+    "https://wa.me/919790911627"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Homeopathy safe for everyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, homeopathic medicines are prepared from natural substances, making them completely non-toxic and safe for infants, children, pregnant women, and elderly patients."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can chronic diseases like psoriasis or asthma be cured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homeopathy works wonders on immune-linked chronic conditions by balancing body systems, which significantly minimizes recurrence and relieves symptom severity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it treat hormonal changes like PCOS or Thyroid issues?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, homeopathy addresses the neuroendocrine pathway, naturally optimizing thyroid and ovarian functions without introducing synthetic external hormones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to see results with homeopathy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The timeline varies based on the chronicity of the illness. Acute ailments respond within hours, while deep-rooted chronic conditions require systematic constitutional treatment over a few months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is homeopathic treatment effective for hair loss and alopecia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, homeopathy targets internal roots of hair fall such as stress, hormonal variations, iron deficiencies, and auto-immune triggers to safely promote systemic hair restoration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any side effects to homeopathic medicines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, because remedies are administered in highly diluted, dynamic micro-doses, they stimulate the body's natural defense mechanisms without causing adverse toxic side effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there dietary restrictions during homeopathic treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally, it is advised to avoid strong-smelling substances like raw onions, garlic, or camphor immediately before or after taking the medicine, as they can interfere with remedy action."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can children and infants safely take homeopathic remedies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Homeopathic sweet globules are highly accepted by children and effective for pediatric conditions like tonsillitis, low immunity, and colic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does homeopathy treat the root cause or just suppress symptoms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homeopathy is holistic and constitutional, meaning it evaluates the complete physical, mental, and genetic profile to correct systemic imbalances rather than merely masking local symptoms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I take homeopathy alongside my current conventional allopathic medicines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, homeopathic remedies do not interfere with conventional drugs. Critical chemical prescriptions should not be abruptly stopped but can run safely in parallel as guided by the physician."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is homeopathy effective for respiratory allergies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it safely desensitizes the overactive immune responses that provoke frequent sneezing, wheezing, chronic sinusitis, and allergic rhinitis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do homeopathic practitioners use steroids to accelerate results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never. Genuine homeopathic clinics use purely plant, mineral, and natural compounds prepared according to standard pharmacopoeia rules. Mild initial scaling or clearing is purely curative, not steroid-driven."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should homeopathic medicines be stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep them in a cool, dark place away from direct sunlight, strong electrical fields, and pungent smells like perfumes, configurations of camphor, or volatile oils."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can migraines and chronic headaches be treated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, homeopathy tracks the individual triggers of your migraine—whether stress, gastric, or hormonal—to systematically minimize the frequency and intense pain of attacks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is homeopathy helpful for gastric and digestive disorders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It provides excellent long-term relief for functional gut disorders including IBS, chronic acidity, flatulence, and sluggish bowel movements by improving digestive motility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does homeopathy help with stress and sleep disorders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, constitutional remedies help balance neuro-emotional states, offering gentle stabilization for anxiety, mood transitions, and chronic insomnia without habit-forming dependencies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are homeopathic remedies made from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They originate from natural substances, primarily source plants, deep earth minerals, and organic compounds, processed through serial dilutions and successions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can homeopathy boost overall immune resilience?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, its primary operational goal is to strengthen the vital host defense mechanism, ensuring the body naturally fights off recurrent viral or bacterial vulnerabilities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a prior appointment to visit Dr. Prathyusha's Homoeo Clinic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, to minimize your waiting window and confirm clinical availability during operational hours, scheduling an advance slot via our direct WhatsApp action framework is highly recommended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it treat lifestyle-induced metabolic issues?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, by targeting cellular assimilation and metabolic clearing, it provides active holistic aid for weight stabilization profiles and early metabolic sluggishness."
+      }
+    }
+  ]
+}
+</script>
+
+
+
+
+</head>
+<body onclick="closeNavOutside(event)">
+<a class="wa-float" href="https://wa.me/919790911627?text=Hi%20Dr.%20Prathyusha,%20I'd%20like%20to%20consult%20regarding%20a%20health%20issue." target="_blank">
+<svg fill="currentColor" height="30" viewbox="0 0 16 16" width="30">
+<path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+</svg>
+</a>
+
+<!-- VERTICAL FLOATING UTILITY BLOCK -->
+<div class="floating-utility-group">
+       <button class="scroll-top-btn" onclick="scrollToTopOfThePage()" title="Move to top">↑</button>
+          
+</div>
+
+
+        
+<div class="action-bar-container">
+    <a href="tel:+919790911627" class="action-btn call-bar-btn">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M3.654 1.328a.678.678 0 0 0-.58-.196L1.545 1.365A.68.68 0 0 0 1 2.039c0 5.613 4.594 10.207 10.207 10.207a.68.68 0 0 0 .674-.545l.233-1.53a.68.68 0 0 0-.417-.717l-2.454-1.022a.68.68 0 0 0-.756.245L7.472 11.16a7.944 7.944 0 0 1-4.764-4.764L4.017 5.04a.68.68 0 0 0 .245-.756L3.24 1.83a.68.68 0 0 0-.586-.502z"/>
+        </svg>
+        First Consultation Free/Call Now
+    </a>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeNav()"></div>
+
+<nav class="sidebar-menu" id="mySidebar">
+    <button class="sidebar-close-btn" onclick="closeNav()">×</button>
+  
+
+    <ul class="sidebar-links">
+      
+        <li><a href="#home" onclick="closeNav()">Home</a></li>
+        <li><a href="#about" onclick="closeNav()">About Us</a></li>
+        <li><a href="#services" onclick="closeNav()">Treatments</a></li>
+        <li><a href="#testimonials" onclick="closeNav()">Success Stories</a></li>
+        <li><a href="#faq" onclick="closeNav()">FAQs</a></li>
+        <li><a href="#contact" onclick="closeNav()">Clinic Location</a></li>
+    </ul>
+</nav>
+<div class="site-header-wrapper">
+
+<!-- DHACU-STYLE 50/50 MOBILE-ONLY TOP BAR -->
+<div class="dhacu-top-bar">
+    <a href="tel:+919790911627" class="dhacu-bar-link phone-block">
+        <span>+91 97909 11627</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openAppointmentModal()" class="dhacu-bar-link appt-block">
+        <span>APPOINTMENT REQUEST</span>
+    </a>
+</div>
+
+
+
+
+
+<header>
+
+<a class="logo-wrap" href="#">
+<div class="css-logo"></div>
+<span class="logo-text">Dr. Prathyusha's<br>Homoeo Clinic</span>
+</a>
+
+<div class="header-actions" style="display: flex; align-items: center; gap: 10px;">
+ 
+   
+<button class="dhacu-btn cta-desktop-only header-cta" onclick="window.location.href='tel:+919790911627'">+91 9790911627</button>
+<button class="dhacu-btn cta-desktop-only header-cta" onclick="openAppointmentModal()">Book Appointment</button>
+        <button class="menu-btn" onclick="openNav(event)">☰</button>
+
+</div></header>
+
+</div>
+
+<div class="desktop-nav-bar">
+<div class="desktop-nav-container">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#services">Treatments</a>
+
+<a href="#testimonials">Success Stories</a>
+<a href="#faq">FAQs</a>
+<a href="#contact">Clinic Location</a>
+</div>
+</div>
+
+
+<section class="hero" id="home">
+<div class="mobile-hero-actions">
+<div class="hero-doctor-mobile">
+    <img src="doctor-portrait.webp"
+         alt="Dr. Prathyusha Homeopathy Doctor Chennai">
+</div>
+</div>
+        
+<div class="hero-left">
+
+
+
+    <h2>Dr.Prathyusha.bhms Best Homeopathy Doctor in Chennai</h2>
+
+    <p>
+        Clinical excellence with 12 years of successful practice in 
+        <b>Chennai, Kilpauk</b>.
+    </p>
+
+    <div class="hero-rating">
+        ⭐ 4.9 Google Rated Clinic • Trusted by 1000+ Chennai Patients
+    </div><br>
+<div class="mobile-hero-actions">
+<a class="cta-btn cta-mobile-only" href="https://wa.me/919790911627?text=Hi%20Dr.%20Prathyusha,%20I'd%20like%20to%20consult%20regarding%20a%20health%20issue." target="_blank">Book Appointment</a>
+</div>
+<button class="cta-btn cta-desktop-only" onclick="openAppointmentModal()">Book Appointment</button>
+</div>
+<div class="hero-right">
+<div class="hero-doctor-mobile">
+    <img src="doctor-portrait.webp"
+         alt="Dr. Prathyusha Homeopathy Doctor Chennai">
+<p>
+        Dr.Prathyusha.B.H.M.S 
+        <b>Chennai, Kilpauk</b>.
+    </p></div>
+
+
+</div>
+</section>
+
+
+
+
+
+
+
+
+<div class="appointment-modal" id="appointmentModal" onclick="closeAppointmentModalOutside(event)">
+<div class="modal-content">
+<span class="modal-close" onclick="closeAppointmentModal()">×</span>
+<h3>Ask a Question / Request Appointment</h3>
+<form id="clinic-form">
+<input name="access_key" type="hidden" value="0a48e4f5-03aa-4902-b1aa-ebb2acf27b7c"/>
+<input name="botcheck" style="display: none;" type="checkbox"/>
+<div class="form-group">
+<label for="pName">Patient Full Name</label>
+<input id="pName" name="Patient Name" placeholder="Enter your full name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="pPhone">Contact Number</label>
+<input id="pPhone" name="Phone Number" placeholder="Enter phone number" required="" type="tel"/>
+<label for="pmail">E-mail</label>
+<input id="pmail" name="email" placeholder="Enter email address" required="" type="email"/>
+</div>
+
+<div class="form-group">
+<label for="pDescription">Describe your health concern (Optional)</label>
+<textarea id="pDescription" name="Health Concern Description" placeholder="Briefly describe your symptoms, timeline, or history..."></textarea>
+</div>
+<button class="form-submit-btn" type="submit">Submit Request</button>
+</form>
+</div>
+</div>
+<section id="about">
+<div class="about-card">
+
+<span class="exp-tag">12+ YEARS OF CLINICAL EXCELLENCE</span>
+<h3>Meet Dr. Prathyusha, B.H.MS</h3>
+<p>I have helped thousands of patients find gentle, effective, and lasting relief from chronic ailments. My approach combines deep clinical expertise with constitutional homeopathy, focusing on treating the root cause of illness rather than just the symptoms.</p>
+<p>Our clinic takes pride in highly successful treatment results, particularly in complex cases of skin disorders, hormonal imbalances, and hair health.</p>
+</div>
+</section>
+<section id="services">
+<h3 class="section-title">Specialized Treatments</h3>
+
+<p class="treatment-hint">
+Click any treatment name below to learn more →
+</p>
+<div class="services-grid">
+
+
+
+    <div class="card"><h4><a href="treatment-detail.html?type=skin-care" style="text-decoration:none; color:inherit;">Skin Care</a></h4><p>Constitutional root healing for acne, severe contact allergies, eczema, painful warts, and chronic psoriasis variants.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=pcod-pcos" style="text-decoration:none; color:inherit;">PCOD / PCOS</a></h4><p>Natural neuroendocrine balancing to resolve cyst developments, cycle irregularities, and related metabolic blocks.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=hair-health" style="text-decoration:none; color:inherit;">Hair & Scalp Health</a></h4><p>Treating underlying auto-immune hair fall, premature graying profiles, persistent dandruff, and alopecia patches.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=respiratory-care" style="text-decoration:none; color:inherit;">Respiratory Care</a></h4><p>Long-term relief structures for chronic sinusitis, breathing struggles, bronchitis flare-ups, and seasonal cold cycles.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=digestive-disorders" style="text-decoration:none; color:inherit;">Digestive Disorders</a></h4><p>Systemic therapies for managing Irritable Bowel Syndrome (IBS), chronic hyperacidity, gastritis, and constipation issues.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=joint-bone-care" style="text-decoration:none; color:inherit;">Joint & Bone Care</a></h4><p>Gentle long-term relief for osteoarthritis, painful rheumatoid conditions, cervical spondylosis, and shooting sciatica pains.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=thyroid-balance" style="text-decoration:none; color:inherit;">Thyroid Balance</a></h4><p>Targeted constitutional support to gently regulate underactive or overactive thyroid functions naturally over time.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=pediatric-care" style="text-decoration:none; color:inherit;">Pediatric Care</a></h4><p>Completely safe, sweet remedies to build children's innate immunity, recurring fevers, tonsillitis, and digestive changes.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=stress-anxiety" style="text-decoration:none; color:inherit;">Stress & Anxiety</a></h4><p>Mind-body therapeutic balancing targeting chronic sleeplessness, panic trends, nervous exhaustion, and mood shifts.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=weight-regulation" style="text-decoration:none; color:inherit;">Weight Regulation</a></h4><p>Correcting base sluggish metabolisms and underlying hormonal imbalances to help establish healthy weight ranges.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=allergic-rhinitis" style="text-decoration:none; color:inherit;">Allergic Rhinitis</a></h4><p>Gradual desensitization of hyper-reactive immune responses triggered by environmental dust, pollen, or animal dander.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=migraine-management" style="text-decoration:none; color:inherit;">Migraine Management</a></h4><p>Reducing the frequency, pain intensity, and underlying vascular triggers of recurring unilateral headaches.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=chronic-fatigue" style="text-decoration:none; color:inherit;">Chronic Fatigue</a></h4><p>Deep cellular revitalization protocols designed to lift systemic exhaustion, lethargy, and low energy trends.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=urinary-complaints" style="text-decoration:none; color:inherit;">Urinary Complaints</a></h4><p>Gentle management for recurrent urinary tract infections (UTIs) and natural aid in passing smaller kidney crystals.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=female-wellness" style="text-decoration:none; color:inherit;">Female Wellness</a></h4><p>Natural management plans for painful monthly cycles, pre-menstrual stress (PMS), and difficult menopausal changes.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=liver-gallbladder" style="text-decoration:none; color:inherit;">Liver & Gallbladder</a></h4><p>Supportive care setups for fatty liver changes, sluggish digestion, and metabolic filtering optimizations.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=lifestyle-disorders" style="text-decoration:none; color:inherit;">Lifestyle Disorders</a></h4><p>Constitutional stabilization assisting in managing systemic vascular tensions, stress markers, and diabetic fatigue.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=immunity-building" style="text-decoration:none; color:inherit;">Immunity Building</a></h4><p>Deep systemic structural adjustments to reverse patterns of falling ill frequently during weather transitions.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=mouth-ulcers" style="text-decoration:none; color:inherit;">Mouth & Oral Ulcers</a></h4><p>Root therapeutic controls targeting recurrent, painful aphthous ulcers linked to chronic digestive heat.</p></div>
+    <div class="card"><h4><a href="treatment-detail.html?type=neuralgia-nerve-pain" style="text-decoration:none; color:inherit;">Neuralgia & Nerve Pain</a></h4><p>Gentle constitutional management to soothe hyper-sensitive nerve pathways, numbness feelings, and tingling pains.</p></div>
+  
+</div>
+</section>
+<section id="testimonials">
+<h3 class="section-title">Patient Success Stories</h3>
+<div class="carousel-container">
+<div class="t-card-wrap" id="carousel">
+<div class="testimonial-item active"><p class="t-text">"I had severe skin allergies for 5 years. Within 3 months of treatment, my skin is completely clear."</p><span class="t-name">- Anitha R.</span></div>
+<div class="testimonial-item"><p class="t-text">"Finally found relief for my PCOD. The constitutional medicine worked wonders for my hormonal balance."</p><span class="t-name">- Priya S.</span></div>
+<div class="testimonial-item"><p class="t-text">"Excellent care for chronic sinus issues. I haven't needed an antibiotic in over a year."</p><span class="t-name">- Rajesh Kumar</span></div>
+<div class="testimonial-item"><p class="t-text">"My daughter's recurring cough and cold are gone. Homeopathy is so gentle and effective for kids."</p><span class="t-name">- Meera V.</span></div>
+<div class="testimonial-item"><p class="t-text">"The most patient doctor I've met. She explains everything so clearly. Highly recommended for hair fall issues."</p><span class="t-name">- Kavitha M.</span></div>
+<div class="testimonial-item"><p class="t-text">"After trying many treatments for my migraine, only Dr. Prathyusha's medicines gave me permanent relief."</p><span class="t-name">- Suresh B.</span></div>
+</div>
+</div>
+</section>
+<section id="faq">
+<h3 class="section-title">Common Questions</h3>
+<div class="faq-container">
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is Homeopathy safe for everyone? <span>+</span></div><div class="faq-answer">Yes, homeopathic medicines are prepared from natural substances, making them completely non-toxic and safe for infants, children, pregnant women, and elderly patients.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I take it with other medicines? <span>+</span></div><div class="faq-answer">Yes, it can be taken alongside most conventional medications safely without chemical interference. We recommend keeping a gap of 20-30 minutes between treatments.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How long does treatment take? <span>+</span></div><div class="faq-answer">Acute cases show quick results within days, while chronic conditions typically show deep systemic improvement within 2-4 months depending on the case history.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are there any dietary restrictions? <span>+</span></div><div class="faq-answer">Generally, we advise avoiding strong flavors like raw onion, garlic, or coffee exactly 30 minutes before and after taking the medicine for optimal absorption through the mouth lining.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is it effective for children? <span>+</span></div><div class="faq-answer">Yes, it is highly effective for children's immunity, tonsillitis, and respiratory issues. Children easily accept the sweet pills without stress.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is constitutional medicine? <span>+</span></div><div class="faq-answer">Constitutional medicine is a highly individualized single remedy selected based on a patient’s unique physical characteristics, genetic tendencies, mental makeup, and health history.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does homeopathy cause an initial illness flare-up? <span>+</span></div><div class="faq-answer">Rarely. In some chronic skin cases, a brief healing response may surface as the disease is pushed out from within. This is temporary and a good sign of healing.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are these sweet pills safe for diabetic individuals? <span>+</span></div><div class="faq-answer">Yes, the amount of sugar in the daily globule dosage is completely negligible and does not alter blood glucose levels. Liquid dilutions can also be used if preferred.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can chronic diseases like psoriasis or asthma be cured? <span>+</span></div><div class="faq-answer">Homeopathy works wonders on immune-linked chronic conditions by balancing body systems, which significantly minimizes recurrence and relieves symptom severity.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are homeopathic remedies approved or scientifically tested? <span>+</span></div><div class="faq-answer">Yes, homeopathic medicines are prepared under rigorous global pharmacopoeia standards and are recognized worldwide for safe clinical clinical applications.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How should I store these medicines? <span>+</span></div><div class="faq-answer">Keep remedies in a cool, dry place away from direct sunlight, strong perfumes, camphor, or electronic radiation sources to preserve their potency.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is homeopathy slow-acting? <span>+</span></div><div class="faq-answer">No, this is a misconception. It acts incredibly fast in acute situations like fevers or diarrhea. It only takes time in chronic conditions because it treats root causes, not temporary masks.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can it treat hormonal changes like PCOS or Thyroid issues? <span>+</span></div><div class="faq-answer">Yes, homeopathy addresses the neuroendocrine pathway, naturally optimizing thyroid and ovarian functions without introducing synthetic external hormones.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does a consultation take so much time? <span>+</span></div><div class="faq-answer">We treat the individual, not just the disease. Understanding your lifestyle, emotional triggers, sleep behavior, and stress patterns helps identify the precise curative remedy.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are homeopathic pills steroid-free? <span>+</span></div><div class="faq-answer">Absolutely. Our medications are derived purely from natural minerals, botanical extracts, and organic substances. They contain zero steroids or artificial components.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use homeopathy for emergency care? <span>+</span></div><div class="faq-answer">Homeopathy is highly suitable for non-fatal acute emergencies like sprains or mild burns, but true life-threatening trauma requires specialized modern critical care.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens if I take an extra dose by mistake? <span>+</span></div><div class="faq-answer">Because remedies are ultra-diluted and bio-friendly, accidental ingestion of an extra dose rarely results in any adverse chemical reaction or poisoning.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I take homeopathy on an empty stomach? <span>+</span></div><div class="faq-answer">It is ideal, but not mandatory. The primary rule is to simply ensure your mouth is clean and completely free of any food tastes or liquids for 20-30 minutes before dosage.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does homeopathy treat preventative conditions? <span>+</span></div><div class="faq-answer">Yes, homeopathy offers effective "genus epidemicus" remedies that act as immunomodulators to help shield individuals during widespread seasonal outbreaks.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can it prevent surgery for items like kidney stones or tonsils? <span>+</span></div><div class="faq-answer">In many instances, yes. Homeopathy can reduce inflammation in tonsils or help dissolve and pass smaller kidney stones naturally, avoiding surgical procedures.</div></div>
+</div>
+</section>
+<footer class="address-section" id="contact">
+<div class="footer-grid-container">
+<div class="footer-col-nav">
+<h4>Quick Navigation</h4>
+<ul class="footer-nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#services">Treatments Overview</a></li>
+
+<li><a href="#testimonials">Success Stories</a></li>
+<li><a href="#faq">FAQs</a></li>
+</ul>
+<div class="footer-sub-heading">Specialized Care Sections</div>
+<ul class="footer-treatment-links">
+<li><a href="#services">• Skin Care</a></li>
+<li><a href="#services">• PCOD / PCOS</a></li>
+<li><a href="#services">• Hair Health</a></li>
+<li><a href="#services">• Respiratory Care</a></li>
+<li><a href="#services">• Digestive Disorders</a></li>
+<li><a href="#services">• Joint &amp; Bone Care</a></li>
+<li><a href="#services">• Thyroid Balance</a></li>
+<li><a href="#services">• Pediatric Care</a></li>
+</ul>
+</div>
+<div class="footer-col-info">
+        <h2>Visit the Clinic</h2>
+<p>Shop No. 8, Ground Floor, Uma Complex, Balfour Road, Kellys, Chennai - 600010
+
+</p>
+        
+        <iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.21270487465!2d80.24508399999999!3d13.0857018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52658aea7035d1%3A0xe77c77b176d8222a!2sDr%20Prathyusha&#39;s%20Homeo%20Clinic%20Kilpauk!5e0!3m2!1sen!2sus!4v1779404280362!5m2!1sen!2sus"
+style="
+border:2px;
+width:100%;
+max-width:100%;
+border-radius:12px;
+display:block;
+"
+height="300"
+allowfullscreen=""
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+        
+<div class="hours">MON-FRI: 10:30 AM TO 1:30 PM</div>
+<p><strong>Contact:</strong> <a class="phone-link" href="tel:+919790911627">+91 97909 11627</a></p>
+</div>
+</div><a href="https://g.page/r/CSoi2Haxd3znEAE/review" target="_blank" class="phone-link">
+Read Our Google Reviews
+</a>
+<p style="font-size: 0.8rem; opacity: 0.6; margin-top: 40px; text-align: center;">© 2026 Dr. Prathyusha's Homoeo Clinic. All Rights Reserved.</p>
+</footer>
+<script>
+        
+ function scrollToTopOfThePage() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+        
+        function openNav(event) { 
+    if (event) event.stopPropagation(); 
+    document.getElementById("mySidebar").classList.add("active"); 
+    document.getElementById("sidebarOverlay").classList.add("active"); 
+}
+
+function closeNav() { 
+    document.getElementById("mySidebar").classList.remove("active"); 
+    document.getElementById("sidebarOverlay").classList.remove("active"); 
+}
+
+// Updated click-outside helper to watch for the active class 
+function closeNavOutside(event) { 
+    const sidebar = document.getElementById("mySidebar"); 
+    // Checks if the sidebar menu is currently open on screen
+    if (sidebar.classList.contains("active") && !sidebar.contains(event.target)) { 
+        closeNav(); 
+    } 
+}
+    
+  
+
+// Desktop Modal Trigger Controls//
+
+function openAppointmentModal() { document.getElementById("appointmentModal").style.display = "flex"; }
+function closeAppointmentModal() { document.getElementById("appointmentModal").style.display = "none"; }
+function closeAppointmentModalOutside(e) { if (e.target.id === "appointmentModal") { closeAppointmentModal(); } }
+
+
+
+// Web3Forms AJAX Async Delivery Engine
+//
+
+
+const targetForm = document.getElementById('clinic-form');
+
+if (targetForm) {
+    targetForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(targetForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        // Find the button within the layout safely
+        const submitBtn = targetForm.querySelector('.form-submit-btn');
+        if (submitBtn) {
+            submitBtn.innerText = "Sending Request...";
+            submitBtn.disabled = true;
+        }
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let res = await response.json();
+            if (response.status == 200) {
+                alert("Thank you! Your booking request has been securely sent. We will review your concern and get back to you shortly.");
+                targetForm.reset(); // Successfully clears the input fields
+                closeAppointmentModal();
+            } else {
+                alert("Submission failed: " + res.message + ". Please try calling the clinic numbers directly.");
+            }
+        })
+        .catch(error => {
+            alert("Network timeout or connection error. Please use our direct WhatsApp or call routes.");
+        })
+        .then(() => {
+            if (submitBtn) {
+                submitBtn.innerText = "Submit Request";
+                submitBtn.disabled = false;
+            }
+        });
+    });
+}
+
+
+
+
+
+
+
+    // Testimonial Carousel Automation Logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-item');
+    setInterval(() => {
+        if (slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    }, 5000);
+
+   
+
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('span');
+        const isOpen = (answer.style.display === "block");
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        document.querySelectorAll('.faq-question span').forEach(s => s.innerText = '+');
+        if(!isOpen) { answer.style.display = "block"; icon.innerText = "−"; }
+    }
+</script>
+<script>
+    window.addEventListener('load', function() {
+        const target = localStorage.getItem('scrollTarget');
+        if (target) {
+            const element = document.getElementById(target);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    localStorage.removeItem('scrollTarget');
+                }, 300);
+            }
+        }
+    });
+
+
+</script>
+</body>
+        
+</html>
