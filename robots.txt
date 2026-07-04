@@ -1,0 +1,7 @@
+#robots.txt for Dr. Prathyushas Homeo Clinic Kilpauk
+
+User-getnt: *
+Allow: /
+
+Sitemap:
+https://drprathyushashomeo.com/sitemap.xml
