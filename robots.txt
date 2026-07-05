@@ -58,3 +58,5 @@ User-agent: meta-externalagent
 Allow: /
 
 # END Cloudflare Managed Content
+
+Sitemap: https://drprathyushashomeo.com/sitemap.xml
